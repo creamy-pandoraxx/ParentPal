@@ -7,4 +7,20 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Warna Dari Figma -->
+    <!-- Primary -->
+    <color name="primary">#0072C6</color>
+    <color name="primary_200">#5AA0F9</color>
+    <color name="primary_300">#CAFFFF</color>
+    <!-- Accent -->
+    <color name="accent">#FDB813</color>
+    <color name="accent_200">#8F5C00</color>
+    <!-- Background -->
+    <color name="background">#F0F8FF</color>
+    <color name="background_200">#E6EEF5</color>
+    <color name="background_300">#BDC5CC</color>
+    <!-- Text -->
+    <color name="text">#07294A</color>
+    <color name="text_200">#395176</color>
 </resources>
