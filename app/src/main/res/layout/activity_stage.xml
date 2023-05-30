@@ -4,10 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RoleActivity">
+    tools:context=".StageActivity">
+    
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_back"/>
 
     <TextView
-        android:id="@+id/tv_role"
+        android:id="@+id/tv_stage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,28 +27,28 @@
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Pilih Peran Anda"
+        android:text="Pilih Tahapan Anda"
         android:fontFamily="@font/nunito_bold"
         android:textColor="@color/text"/>
 
     <RadioGroup
-        android:id="@+id/rg_role"
+        android:id="@+id/rg_stage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_role"
+        app:layout_constraintTop_toBottomOf="@id/tv_stage"
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp">
 
         <RadioButton
-            android:id="@+id/rb_bunda"
+            android:id="@+id/rb_calon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/primary"
             android:checked="true"
-            android:text="Bunda"
+            android:text="Sebagai calon orang tua"
             android:textSize="14sp"
             android:padding="10dp"
             android:fontFamily="@font/nunito_semibold"
@@ -47,14 +57,14 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:src="@drawable/bunda"/>
+            android:src="@drawable/calon_ortu"/>
 
         <RadioButton
-            android:id="@+id/rb_ayah"
-            android:layout_width="match_parent"
+            android:id="@+id/rb_ortu"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/primary"
-            android:text="Ayah"
+            android:text="Sudah menjadi orang tua"
             android:textSize="14sp"
             android:padding="10dp"
             android:fontFamily="@font/nunito_semibold"
@@ -64,11 +74,11 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:src="@drawable/ayah"/>
+            android:src="@drawable/ortu"/>
     </RadioGroup>
 
     <Button
-        android:id="@+id/btn_role"
+        android:id="@+id/btn_stage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_rectangle_blue"
@@ -79,8 +89,8 @@
         android:textAllCaps="false"
         android:fontFamily="@font/nunito_semibold"
         android:textSize="14sp"
+        android:layout_marginBottom="32dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"/>
+        android:layout_marginEnd="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

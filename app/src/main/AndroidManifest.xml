@@ -23,6 +23,12 @@
         <activity
             android:name=".RoleActivity"
             android:exported="true" />
+        <activity
+            android:name=".StageActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".BioActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

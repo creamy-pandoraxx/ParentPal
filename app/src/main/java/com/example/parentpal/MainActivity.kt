@@ -10,9 +10,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bRole = findViewById<Button>(R.id.btn_role)
+        val btnRole = findViewById<Button>(R.id.BRole)
 
-        bRole.setOnClickListener {
+        btnRole.setOnClickListener {
             val goRole = Intent(this@MainActivity, RoleActivity::class.java)
             startActivity(goRole)
         }
