@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ParentPal</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="pilih_peran_anda">Pilih Peran Anda</string>
+    <string name="bunda">Bunda</string>
+    <string name="ayah">Ayah</string>
 </resources>

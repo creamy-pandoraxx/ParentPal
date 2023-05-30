@@ -17,7 +17,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Pilih Peran Anda"
+        android:text="@string/pilih_peran_anda"
         android:fontFamily="@font/nunito_bold"
         android:textColor="@color/text"/>
 
@@ -38,13 +38,14 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/primary"
             android:checked="true"
-            android:text="Bunda"
+            android:text="@string/bunda"
             android:textSize="14sp"
             android:padding="10dp"
-            android:fontFamily="@font/nunito_semibold"
+            android:fontFamily="@font/nunito_semi_bold"
             android:textColor="@color/text" />
 
         <ImageView
+            android:id="@+id/iv_bunda"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:src="@drawable/bunda"/>
@@ -54,10 +55,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/primary"
-            android:text="Ayah"
+            android:text="@string/ayah"
             android:textSize="14sp"
             android:padding="10dp"
-            android:fontFamily="@font/nunito_semibold"
+            android:fontFamily="@font/nunito_semi_bold"
             android:textColor="@color/text"
             android:layout_marginTop="5dp"/>
 
@@ -72,12 +73,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_rectangle_blue"
-        android:text="Lanjutkan"
+        android:text="@string/lanjutkan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textAllCaps="false"
-        android:fontFamily="@font/nunito_semibold"
+        android:fontFamily="@font/nunito_semi_bold"
+        android:textColor="@color/primary_300"
         android:textSize="14sp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"

@@ -51,7 +51,7 @@
             android:text="Sebagai calon orang tua"
             android:textSize="14sp"
             android:padding="10dp"
-            android:fontFamily="@font/nunito_semibold"
+            android:fontFamily="@font/nunito_semi_bold"
             android:textColor="@color/text" />
 
         <ImageView
@@ -67,7 +67,7 @@
             android:text="Sudah menjadi orang tua"
             android:textSize="14sp"
             android:padding="10dp"
-            android:fontFamily="@font/nunito_semibold"
+            android:fontFamily="@font/nunito_semi_bold"
             android:textColor="@color/text"
             android:layout_marginTop="5dp"/>
 
@@ -87,7 +87,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textAllCaps="false"
-        android:fontFamily="@font/nunito_semibold"
+        android:fontFamily="@font/nunito_semi_bold"
+        android:textColor="@color/primary_300"
         android:textSize="14sp"
         android:layout_marginBottom="32dp"
         android:layout_marginStart="16dp"
