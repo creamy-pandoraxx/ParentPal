@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="button" >
+        <item name="backgroundTint">@color/primary</item>
+        <item name="fontFamily">@font/nunito_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_300</item>
+        <item name="android:paddingBottom">16.5dp</item>
+        <item name="android:paddingTop">16.5dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="button_disable" >
+        <item name="alpha">0.4</item>
+        <item name="backgroundTint">@color/primary</item>
+        <item name="fontFamily">@font/nunito_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_300</item>
+        <item name="android:paddingBottom">16.5dp</item>
+        <item name="android:paddingTop">16.5dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+</resources>
