@@ -46,10 +46,103 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_title">
-        <EditText
-            android:id="@+id/inputEmail"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
-            android:layout_height="52dp"/>
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/text_200"
+            app:boxStrokeColor="@color/primary"
+            app:endIconDrawable="@drawable/dismiss"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/primary"
+            app:hintTextColor="@color/text_200"
+            app:placeholderTextColor="@color/text">
+
+            <EditText
+                android:id="@+id/inputEmail"
+                style="@style/textstyle_enable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textSandiLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textColorHint="@color/text_200"
+            app:boxStrokeColor="@color/primary"
+            app:endIconDrawable="@drawable/show"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/primary"
+            app:hintTextColor="@color/text_200"
+            app:placeholderTextColor="@color/text">
+
+            <EditText
+                android:id="@+id/inputSandi"
+                style="@style/textstyle_enable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/semiBold_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="32dp"
+            android:text="Lupa Password ?"
+            android:textColor="@color/primary" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonMasuk"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:minWidth="328dp"
+        android:text="Masuk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailSandi" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/regular_14"
+            android:textColor="@color/primary"
+            android:text="Belum memiliki akun ? " />
+        <TextView
+            android:id="@+id/textDaftar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar"
+            android:textColor="@color/primary"
+            style="@style/semiBold_14"/>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
