@@ -15,6 +15,7 @@ import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
 import com.example.parentpal.PreferenceManager
 import com.example.parentpal.R
+import com.example.parentpal.RegisterActivity
 import com.example.parentpal.SignInActivity
 
 class OnboardingFragment : Fragment() {
@@ -90,7 +91,7 @@ class OnboardingFragment : Fragment() {
                 introSliderViewPager.currentItem += 1
             } else {
                 preferenceManager.setFirstTimeLaunch(false)
-                val intent = Intent(requireContext(), SignInActivity::class.java)
+                val intent = Intent(requireContext(), RegisterActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
             }
@@ -104,7 +105,7 @@ class OnboardingFragment : Fragment() {
 
         textSkip.setOnClickListener {
             preferenceManager.setFirstTimeLaunch(false)
-            val intent = Intent(requireContext(), SignInActivity::class.java)
+            val intent = Intent(requireContext(), RegisterActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
