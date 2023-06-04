@@ -3,6 +3,7 @@ package com.example.parentpal
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 
 class BioActivity : AppCompatActivity() {
@@ -11,10 +12,16 @@ class BioActivity : AppCompatActivity() {
         setContentView(R.layout.activity_bio)
 
         val back = findViewById<ImageView>(R.id.iv_backBio)
+        val nextLanding = findViewById<Button>(R.id.btn_bio)
 
         back.setOnClickListener {
             val backStage = Intent(this@BioActivity, StageActivity::class.java)
             startActivity(backStage)
+        }
+
+        nextLanding.setOnClickListener {
+            val goLanding = Intent(this@BioActivity, LandingActivity::class.java)
+            startActivity(goLanding)
         }
     }
 }
