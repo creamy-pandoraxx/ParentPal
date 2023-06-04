@@ -106,7 +106,7 @@
             android:layout_marginTop="40dp"
             android:textColorHint="@color/text_200"
             app:boxStrokeColor="@color/primary"
-            app:endIconDrawable="@drawable/show"
+            app:endIconDrawable="@drawable/hide"
             app:endIconMode="password_toggle"
             app:endIconTint="@color/primary"
             app:hintTextColor="@color/text_200"
@@ -132,7 +132,7 @@
             android:layout_marginTop="40dp"
             android:textColorHint="@color/text_200"
             app:boxStrokeColor="@color/primary"
-            app:endIconDrawable="@drawable/show"
+            app:endIconDrawable="@drawable/hide"
             app:endIconMode="password_toggle"
             app:endIconTint="@color/primary"
             app:hintTextColor="@color/text_200"
@@ -220,11 +220,12 @@
                 android:textColor="@color/primary"
                 android:text="Sudah memiliki akun ? "/>
             <TextView
+                android:id="@+id/textMasuk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/bold_14"
                 android:textColor="@color/primary"
-                android:text="Daftar"/>
+                android:text="Masuk"/>
 
         </LinearLayout>
     </LinearLayout>
