@@ -13,6 +13,12 @@
         <item name="android:statusBarColor">#E9E9E9</item>
         <!-- Customize your theme here. -->
     </style>
-
-
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary</item>
+        <item name="android:textColor">@color/primary_300</item>
+    </style>
+    <style name="App.Custom.text" parent="Widget.Material3.BottomNavigationView">
+        <item name="fontFamily">@font/nunito_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>
