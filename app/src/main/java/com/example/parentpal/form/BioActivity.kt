@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.parentpal.LandingActivity
 import com.example.parentpal.R
-import androidx.appcompat.app.AppCompatDelegate
 
 class BioActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
