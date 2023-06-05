@@ -45,15 +45,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintEnd_toEndOf="parent"
+        <com.denzcoskun.imageslider.ImageSlider
+            android:padding="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_desc" />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:id="@+id/imageSlider"
+            app:iss_auto_cycle="true"
+            app:iss_delay="1000"
+            app:iss_title_background="@android:color/transparent"
+            app:iss_selected_dot="@drawable/dot"
+            app:iss_unselected_dot="@drawable/unselected_dot_default"
+            app:iss_period="1000"
+            />
         <TextView
             android:id="@+id/tv_andalan"
             android:layout_width="wrap_content"
@@ -65,7 +71,7 @@
             android:textColor="@color/text"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_pager" />
+            app:layout_constraintTop_toBottomOf="@id/imageSlider" />
 
         <LinearLayout
             android:id="@+id/ly_menu"
