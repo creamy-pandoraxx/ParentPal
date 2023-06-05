@@ -510,7 +510,7 @@
                     android:text="21.56 | 25 Juni 2023"
                     android:fontFamily="@font/nunito_regular"
                     android:textSize="12sp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="28dp"
                     android:layout_marginStart="10dp"
                     android:textColor="@color/text_200"/>
 
@@ -530,16 +530,19 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
+            android:gravity="center|top"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cd_article">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lihat Lainnya"
+                android:drawableEnd="@drawable/ic_next"
                 android:fontFamily="@font/nunito_semi_bold"
                 android:textSize="16sp"
+                android:drawablePadding="8dp"
                 android:textColor="@color/primary"
                 android:gravity="center"/>
         </LinearLayout>
