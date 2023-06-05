@@ -28,14 +28,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RoleActivity"
+            android:name=".form.RoleActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".StageActivity"
+            android:name=".form.StageActivity"
             android:exported="true" />
         <activity
-            android:name=".BioActivity"
+            android:name=".form.BioActivity"
             android:exported="true" />
         <activity
             android:name=".HomeActivity"
