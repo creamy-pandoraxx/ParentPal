@@ -80,7 +80,7 @@
             android:layout_marginTop="40dp"
             android:textColorHint="@color/text_200"
             app:boxStrokeColor="@color/primary"
-            app:endIconDrawable="@drawable/show"
+            app:endIconDrawable="@drawable/hide"
             app:endIconMode="password_toggle"
             app:endIconTint="@color/primary"
             app:hintTextColor="@color/text_200"
@@ -141,7 +141,7 @@
             android:layout_height="wrap_content"
             android:text="Daftar"
             android:textColor="@color/primary"
-            style="@style/semiBold_14"/>
+            style="@style/bold_14"/>
     </LinearLayout>
 
 

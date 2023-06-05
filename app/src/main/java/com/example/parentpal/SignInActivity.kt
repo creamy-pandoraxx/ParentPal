@@ -68,6 +68,12 @@ class SignInActivity : AppCompatActivity() {
 
         inputEmail.addTextChangedListener(textWatcher)
         inputSandi.addTextChangedListener(textWatcher)
+
+        buttonMasuk.setOnClickListener {
+            // Panggil intent untuk berpindah ke activity lain
+            val intent = Intent(this, RoleActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun isInputEmpty(): Boolean {

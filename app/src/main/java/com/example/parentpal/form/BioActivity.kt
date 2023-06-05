@@ -7,11 +7,13 @@ import android.widget.Button
 import android.widget.ImageView
 import com.example.parentpal.LandingActivity
 import com.example.parentpal.R
+import androidx.appcompat.app.AppCompatDelegate
 
 class BioActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bio)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val back = findViewById<ImageView>(R.id.iv_backBio)
         val nextLanding = findViewById<Button>(R.id.btn_bio)
