@@ -156,76 +156,86 @@
         android:id="@+id/footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="64dp"
         android:orientation="vertical"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailSandi">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
+                style="@style/regular_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/regular_12"
-                android:textColor="@color/text"
-                android:text="Dengan mendaftar, Anda setuju dengan"/>
+                android:text="Dengan mendaftar, Anda setuju dengan"
+                android:textColor="@color/text" />
+
             <TextView
                 android:id="@+id/syaratKetentuan"
+                style="@style/regular_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/regular_12"
-                android:textColor="@color/primary"
-                android:text=" Syarat &amp; Ketentuan"/>
+                android:text=" Syarat &amp; Ketentuan"
+                android:textColor="@color/primary" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
+                style="@style/regular_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/regular_12"
-                android:textColor="@color/text"
-                android:text="dan "/>
+                android:text="dan "
+                android:textColor="@color/text" />
+
             <TextView
                 android:id="@+id/kebijakan"
+                style="@style/regular_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/regular_12"
-                android:textColor="@color/primary"
-                android:text="Kebijakan Kami"/>
+                android:text="Kebijakan Kami"
+                android:textColor="@color/primary" />
         </LinearLayout>
+
         <Button
             android:id="@+id/buttonRegis"
-            android:layout_gravity="center"
             style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:minWidth="328dp"
-            android:text="Daftar"/>
+            android:text="Daftar" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:layout_marginTop="12dp"
             android:gravity="center">
+
             <TextView
+                style="@style/medium_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/medium_14"
-                android:textColor="@color/primary"
-                android:text="Sudah memiliki akun ? "/>
+                android:text="Sudah memiliki akun ? "
+                android:textColor="@color/primary" />
+
             <TextView
                 android:id="@+id/textMasuk"
+                style="@style/bold_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/bold_14"
-                android:textColor="@color/primary"
-                android:text="Masuk"/>
+                android:text="Masuk"
+                android:textColor="@color/primary" />
 
         </LinearLayout>
     </LinearLayout>
