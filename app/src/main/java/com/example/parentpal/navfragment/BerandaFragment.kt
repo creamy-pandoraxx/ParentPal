@@ -5,8 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import androidx.core.view.children
+import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.AnimationTypes
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.parentpal.R
+import com.example.parentpal.databinding.FragmentBerandaBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +28,11 @@ private const val ARG_PARAM2 = "param2"
  */
 class BerandaFragment : Fragment() {
     // TODO: Rename and change types of parameters
+    private var _binding:FragmentBerandaBinding?= null
+    lateinit var imageSlider : ImageSlider
+
+    private val binding get() = _binding!!
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +44,20 @@ class BerandaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_beranda, container, false)
+        _binding = FragmentBerandaBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        imageSlider = binding.imageSlider
+        val imageList = ArrayList<SlideModel>()
+        imageList.add(SlideModel("https://sekawan.s3.ap-southeast-2.amazonaws.com/parenting/slide1.jpeg",""))
+        imageList.add(SlideModel("https://sekawan.s3.ap-southeast-2.amazonaws.com/parenting/slide2.jpeg",""))
+        imageList.add(SlideModel("https://sekawan.s3.ap-southeast-2.amazonaws.com/parenting/slide3.jpeg",""))
+        imageSlider.setSlideAnimation(AnimationTypes.DEPTH_SLIDE)
+        imageSlider.setImageList(imageList, ScaleTypes.CENTER_INSIDE)
+
+
+        return root
     }
 
     companion object {

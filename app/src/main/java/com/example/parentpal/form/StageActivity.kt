@@ -1,10 +1,11 @@
-package com.example.parentpal
+package com.example.parentpal.form
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import com.example.parentpal.R
 import androidx.appcompat.app.AppCompatDelegate
 
 class StageActivity : AppCompatActivity() {
