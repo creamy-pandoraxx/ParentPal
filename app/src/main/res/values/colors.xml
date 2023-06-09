@@ -23,4 +23,11 @@
     <!-- Text -->
     <color name="text">#07294A</color>
     <color name="text_200">#395176</color>
+    <!-- System -->
+    <color name="info">#1966D2</color>
+    <color name="danger">#FF2600</color>
+    <color name="succes">#54AF4C</color>
+    <color name="alert">#FFAC07</color>
+
+
 </resources>

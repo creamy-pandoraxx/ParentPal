@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.parentpal.navfragment.BerandaFragment
+import com.example.parentpal.navfragment.ProfilFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
@@ -37,7 +38,10 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.item_4 -> {
-                    // Respond to navigation item 2 click
+                    val fragment = ProfilFragment()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.layout_frame, fragment)
+                        .commit()
                     true
                 }
                 else -> false

@@ -11,12 +11,14 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmapOrNull
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
 import com.example.parentpal.PreferenceManager
 import com.example.parentpal.R
 import com.example.parentpal.RegisterActivity
 import com.example.parentpal.SignInActivity
+import com.google.android.material.button.MaterialButton
 
 class OnboardingFragment : Fragment() {
     private lateinit var preferenceManager: PreferenceManager
@@ -40,7 +42,7 @@ class OnboardingFragment : Fragment() {
         )
     )
 
-    private lateinit var buttonNext: Button
+    private lateinit var buttonNext: MaterialButton
     private lateinit var textSkip: TextView
     private lateinit var introSliderViewPager: ViewPager2
     private lateinit var indicatorContainer: LinearLayout
@@ -78,9 +80,11 @@ class OnboardingFragment : Fragment() {
 
                 if (position == viewPagerAdapter.itemCount - 1) {
                     buttonNext.text = "Mulai Sekarang!"
+                    buttonNext.setIcon(null)
                     buttonSkip.visibility = View.INVISIBLE
                 } else {
                     buttonNext.text = "Lanjut"
+                    buttonNext.setIconResource(R.drawable.right_icon)
                     buttonSkip.visibility = View.VISIBLE
                 }
             }
@@ -169,4 +173,5 @@ class OnboardingFragment : Fragment() {
         }
     }
 }
+
 

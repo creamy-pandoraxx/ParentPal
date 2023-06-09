@@ -54,11 +54,11 @@
             android:layout_height="290dp"
             android:id="@+id/imageSlider"
             app:iss_auto_cycle="true"
-            app:iss_delay="1000"
+            app:iss_delay="3000"
             app:iss_title_background="@android:color/transparent"
             app:iss_selected_dot="@drawable/dot"
             app:iss_unselected_dot="@drawable/unselected_dot_default"
-            app:iss_period="1000"/>
+            app:iss_period="3000"/>
         <TextView
             android:id="@+id/tv_andalan"
             android:layout_width="wrap_content"
