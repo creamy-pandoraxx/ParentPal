@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDelegate
-import com.example.parentpal.LandingActivity
+import com.example.parentpal.activity.LandingActivity
 import com.example.parentpal.R
 
 class BioActivity : AppCompatActivity() {

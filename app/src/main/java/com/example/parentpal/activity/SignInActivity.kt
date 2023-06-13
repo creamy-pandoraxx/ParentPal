@@ -1,10 +1,9 @@
-package com.example.parentpal
+package com.example.parentpal.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -13,6 +12,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import com.example.parentpal.R
 import com.example.parentpal.form.RoleActivity
 import com.google.android.material.textfield.TextInputLayout
 

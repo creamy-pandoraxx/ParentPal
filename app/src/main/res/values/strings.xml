@@ -8,4 +8,55 @@
     <string name="halo">Halo,</string>
     <string name="semoga_hari_anda_menyenangkan">Semoga hari Anda menyenangkan!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="data_name">
+        <item>Semua</item>
+        <item>Pendidikan anak usia dini</item>
+        <item>Psikologi &amp; Pola Asuh</item>
+        <item>Kesehatan Anak</item>
+        <item>Kehamilan</item>
+        <item>Perencanaan Keuangan</item>
+        <item>Emosional</item>
+        <item>Karakter</item>
+        <item>Pendidikan</item>
+        <item>Hobi</item>
+        <item>Perkembangan Fisik</item>
+        <item>Komunikasi</item>
+        <item>Kognitif</item>
+    </string-array>
+
+    <string-array name="data_title">
+        <item>Tidak mau makan</item>
+        <item>Tersedak ASI</item>
+        <item>Anak menangis disertai teriak</item>
+        <item>Anak 4 tahun masih belum jelas berbicara</item>
+    </string-array>
+
+    <string-array name="data_quest">
+        <item>Selamat malam, Dokter. Saya memiliki masalah dengan anak saya yang tidak mau makan. Saya</item>
+        <item>Halo dok, Saya mengalami kejadian yang mengkhawatirkan dengan bayi saya. Dia tersedak</item>
+        <item>Selamat malam, Dokter. Saya memiliki masalah dengan anak saya yang tidak mau makan. Saya</item>
+        <item>Selamat malam, Dokter. Saya memiliki masalah dengan anak saya yang tidak mau makan. Saya</item>
+    </string-array>
+
+    <string-array name="data_date">
+        <item>25 Januari 2023</item>
+        <item>20 Juni 2023</item>
+        <item>1 Juni 2023</item>
+        <item>6 Juli 2023</item>
+    </string-array>
+
+    <string-array name="data_time">
+        <item>20.00</item>
+        <item>20.59</item>
+        <item>20.00</item>
+        <item>23.00</item>
+    </string-array>
+
+    <integer-array name="data_img">
+        <item>@drawable/drawable_img</item>
+        <item>@drawable/drawable_img</item>
+        <item>@drawable/drawable_img</item>
+        <item>@drawable/drawable_img</item>
+    </integer-array>
 </resources>

@@ -1,10 +1,9 @@
-package com.example.parentpal
+package com.example.parentpal.activity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.parentpal.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
