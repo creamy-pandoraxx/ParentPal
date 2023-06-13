@@ -51,6 +51,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_category" />
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_quest"
             android:layout_width="match_parent"
