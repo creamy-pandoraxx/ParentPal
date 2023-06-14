@@ -3,6 +3,7 @@ package com.example.parentpal.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.parentpal.navfragment.BelajarFragment
 import com.example.parentpal.R
 import com.example.parentpal.navfragment.BerandaFragment
 import com.example.parentpal.navfragment.ProfilFragment
@@ -33,6 +34,10 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.item_2 -> {
                     // Respond to navigation item 2 click
+                    val fragment = BelajarFragment()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.layout_frame, fragment)
+                        .commit()
                     true
                 }
                 R.id.item_3 -> {

@@ -83,86 +83,142 @@
             app:layout_constraintTop_toBottomOf="@id/tv_andalan">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_ahli" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/ahli_pal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/background_200"
+                    android:layout_gravity="center"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_ahli2" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_regular"
+                    android:layout_marginTop="8dp"
+                    style="@style/regular_12"
                     android:text="AhliPal"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textColor="@color/text" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_fase" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fase_pal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/background_200"
+                    android:layout_gravity="center"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_fasepal" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_regular"
+                    android:layout_marginTop="8dp"
+                    style="@style/regular_12"
                     android:text="FasePal"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textColor="@color/text" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_eduka" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/eduka_pal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/background_200"
+                    android:layout_gravity="center"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_edukapal" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_regular"
+                    android:layout_marginTop="8dp"
+                    style="@style/regular_12"
                     android:text="EdukaPal"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textColor="@color/text" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_bina" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/bina_pal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/background_200"
+                    android:layout_gravity="center"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_binapal" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_regular"
+                    android:layout_marginTop="8dp"
+                    style="@style/regular_12"
                     android:text="BinaPal"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textColor="@color/text" />
 
             </LinearLayout>
         </LinearLayout>
@@ -190,6 +246,115 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@id/tv_kategori"/>
+
+        <HorizontalScrollView
+            android:id="@+id/sv_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_kategori">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/shape_line_primary"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:paddingHorizontal="15dp"
+                    android:text="Emosional"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/shape_line_primary"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:paddingHorizontal="15dp"
+                    android:text="Karakter"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/shape_line_primary"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:paddingHorizontal="15dp"
+                    android:text="Pendidikan"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/shape_line_primary"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:paddingHorizontal="15dp"
+                    android:text="Hobi"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/shape_line_primary"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:paddingHorizontal="15dp"
+                    android:text="Perkembangan Fisik"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/shape_line_primary"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:paddingHorizontal="15dp"
+                    android:text="Komunikasi"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/shape_line_primary"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:paddingHorizontal="15dp"
+                    android:text="Kognitif"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <HorizontalScrollView
             android:id="@+id/sv_artikel"

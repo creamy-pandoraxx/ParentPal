@@ -31,26 +31,17 @@
         android:fontFamily="@font/nunito_bold"
         android:textColor="@color/text"/>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:cardBackgroundColor="@color/background_300"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_bio"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="12dp"/>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cd_bio"
         android:layout_width="match_parent"
         android:layout_height="246dp"
-        app:cardBackgroundColor="@color/white"
+        app:strokeColor="@color/background_300"
+        app:cardBackgroundColor="@color/background_200"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_bio"
+        app:cardElevation="20dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="18dp"
@@ -181,7 +172,7 @@
             </RadioGroup>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <ImageView
         android:id="@+id/iv_plus"
@@ -223,5 +214,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
