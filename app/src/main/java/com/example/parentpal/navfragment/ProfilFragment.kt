@@ -10,8 +10,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.example.parentpal.R
-import com.example.parentpal.SignInActivity
+import com.example.parentpal.activity.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
+
 
 class ProfilFragment : Fragment() {
     private lateinit var logOutButton: TextView
@@ -20,6 +21,7 @@ class ProfilFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profil, container, false)
 
         // Cari referensi tombol "Keluar Akun"
@@ -73,8 +75,4 @@ class ProfilFragment : Fragment() {
 
         dialog.show()
     }
-
-
-
-
 }
