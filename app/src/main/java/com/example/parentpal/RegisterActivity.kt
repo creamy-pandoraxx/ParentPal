@@ -10,11 +10,21 @@ import android.text.method.PasswordTransformationMethod
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
+    private lateinit var database: FirebaseDatabase
+    private lateinit var userRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -29,7 +39,11 @@ class RegisterActivity : AppCompatActivity() {
         val buttonRegis: Button = findViewById(R.id.buttonRegis)
         val textMasuk: TextView = findViewById(R.id.textMasuk)
 
-        //Sandi
+        // Inisialisasi Firebase Database
+        database = Firebase.database("https://parentpal-ff1ef-default-rtdb.asia-southeast1.firebasedatabase.app")
+        userRef = database.reference.child("users")
+
+        // Sandi
         textInputLayout.setEndIconOnClickListener {
             val isPasswordVisible = inputSandi.transformationMethod is PasswordTransformationMethod
             if (isPasswordVisible) {
@@ -43,7 +57,7 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        //konfir
+        // Konfir
         textKonfirLayout.setEndIconOnClickListener {
             val isPasswordVisible = konfirSandi.transformationMethod is PasswordTransformationMethod
             if (isPasswordVisible) {
@@ -57,19 +71,19 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        //Button regis
+        // Button Regis
         buttonRegis.isEnabled = false
-        buttonRegis.alpha= 0.4f
+        buttonRegis.alpha = 0.4f
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (isInputEmpty()) {
                     buttonRegis.isEnabled = false
-                    buttonRegis.alpha= 0.4f
+                    buttonRegis.alpha = 0.4f
                 } else {
                     buttonRegis.isEnabled = true
-                    buttonRegis.alpha= 1.0f
+                    buttonRegis.alpha = 1.0f
                 }
             }
 
@@ -81,14 +95,59 @@ class RegisterActivity : AppCompatActivity() {
         inputNama.addTextChangedListener(textWatcher)
         konfirSandi.addTextChangedListener(textWatcher)
 
-
-        //text Masuk
+        // Text Masuk
         textMasuk.setOnClickListener {
             // Panggil intent untuk berpindah ke activity lain
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }
+
+        // Button Regis Click Listener
+        buttonRegis.setOnClickListener {
+            val email = inputEmail.text.toString().trim()
+            val password = inputSandi.text.toString().trim()
+            val nama = inputNama.text.toString().trim()
+            val konfir = konfirSandi.text.toString().trim()
+
+            // Registrasi pengguna dengan Firebase Authentication
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener { registrationTask ->
+                    if (registrationTask.isSuccessful) {
+                        // Registrasi berhasil
+                        val currentUser = FirebaseAuth.getInstance().currentUser
+                        val userId = currentUser?.uid
+
+                        // Simpan data pengguna dalam Realtime Database
+                        if (userId != null) {
+                            val userData = HashMap<String, Any>()
+                            userData["email"] = email
+                            userData["name"] = nama
+
+                            userRef.child(userId).setValue(userData)
+                                .addOnCompleteListener { databaseTask ->
+                                    if (databaseTask.isSuccessful) {
+                                        // Data pengguna berhasil disimpan dalam Realtime Database
+                                        // Lakukan tindakan selanjutnya, seperti navigasi ke halaman utama
+                                        val intent = Intent(this, SignInActivity::class.java)
+                                        Firebase.auth.signOut()
+                                        intent.putExtra("email", email)
+                                        intent.putExtra("password", password)
+                                        startActivity(intent)
+                                        finish()
+                                    } else {
+                                        // Gagal menyimpan data pengguna dalam Realtime Database
+                                        Toast.makeText(this, "Gagal menyimpan data pengguna.", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                        }
+                    } else {
+                        // Registrasi gagal
+                        Toast.makeText(this, "Gagal mendaftar. Silakan coba lagi.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
     }
+
     private fun isInputEmpty(): Boolean {
         val inputEmail: EditText = findViewById(R.id.inputEmail)
         val inputSandi: EditText = findViewById(R.id.inputSandi)
@@ -99,6 +158,6 @@ class RegisterActivity : AppCompatActivity() {
         val password = inputSandi.text.toString().trim()
         val nama = inputNama.text.toString().trim()
         val konfir = konfirSandi.text.toString().trim()
-        return email.isEmpty() || password.isEmpty() || nama.isEmpty() || konfir.isEmpty()
+        return email.isEmpty() || password.isEmpty() || nama.isEmpty() || konfir.isEmpty() || password != konfir
     }
 }

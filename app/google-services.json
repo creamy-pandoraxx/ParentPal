@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "873248385637",
+    "project_id": "parentpal-ff1ef",
+    "storage_bucket": "parentpal-ff1ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873248385637:android:169c069894f9d71327f48c",
+        "android_client_info": {
+          "package_name": "com.example.parentpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873248385637-7vskpbbpaethdg1i35pns207bc437a58.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6eQ22dRuXcXH5IMdROyGf3Y5Sd9HgOPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873248385637-7vskpbbpaethdg1i35pns207bc437a58.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

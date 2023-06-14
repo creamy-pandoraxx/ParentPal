@@ -15,31 +15,19 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.parentpal.R
 import com.example.parentpal.databinding.FragmentBerandaBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [BerandaFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class BerandaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var _binding:FragmentBerandaBinding?= null
-    lateinit var imageSlider : ImageSlider
-
+    private lateinit var imageSlider : ImageSlider
     private val binding get() = _binding!!
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
-
+    private lateinit var databaseRef: DatabaseReference
+    private lateinit var auth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,6 +37,10 @@ class BerandaFragment : Fragment() {
         _binding = FragmentBerandaBinding.inflate(inflater, container, false)
         val root: View = binding.root
         imageSlider = binding.imageSlider
+
+        databaseRef = Firebase.database("https://parentpal-ff1ef-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("users")
+        auth = FirebaseAuth.getInstance()
+
         val imageList = ArrayList<SlideModel>()
         imageList.add(SlideModel("https://sekawan.s3.ap-southeast-2.amazonaws.com/parenting/slide1.jpeg",""))
         imageList.add(SlideModel("https://sekawan.s3.ap-southeast-2.amazonaws.com/parenting/slide2.jpeg",""))
@@ -57,26 +49,28 @@ class BerandaFragment : Fragment() {
         imageSlider.setImageList(imageList, ScaleTypes.CENTER_INSIDE)
 
 
+
+        // Mendapatkan ID pengguna saat ini
+        val currentUser: FirebaseUser? = auth.currentUser
+        val userId: String = currentUser?.uid ?: ""
+
+        // Mendapatkan data "nama" dari Firebase Database
+        val userRef: DatabaseReference = databaseRef.child(userId)
+        userRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Mendapatkan data "nama" dari dataSnapshot
+                val nama: String? = dataSnapshot.child("name").getValue(String::class.java)
+                // Menggunakan data "nama" yang diperoleh
+                binding.tvTitle.text = "Halo, $nama"
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Penanganan kesalahan jika terjadi
+            }
+        })
+
+
         return root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BerandaFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BerandaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

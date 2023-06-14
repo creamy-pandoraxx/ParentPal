@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context=".navfragment.BerandaFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -82,86 +83,142 @@
             app:layout_constraintTop_toBottomOf="@id/tv_andalan">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_ahli" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/ahli_pal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/background_200"
+                    android:layout_gravity="center"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_ahli2" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_regular"
+                    android:layout_marginTop="8dp"
+                    style="@style/regular_12"
                     android:text="AhliPal"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textColor="@color/text" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_fase" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fase_pal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/background_200"
+                    android:layout_gravity="center"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_fasepal" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_regular"
+                    android:layout_marginTop="8dp"
+                    style="@style/regular_12"
                     android:text="FasePal"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textColor="@color/text" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_eduka" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/eduka_pal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/background_200"
+                    android:layout_gravity="center"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_edukapal" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_regular"
+                    android:layout_marginTop="8dp"
+                    style="@style/regular_12"
                     android:text="EdukaPal"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textColor="@color/text" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_bina" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/bina_pal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/background_200"
+                    android:layout_gravity="center"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_binapal" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_regular"
+                    android:layout_marginTop="8dp"
+                    style="@style/regular_12"
                     android:text="BinaPal"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textColor="@color/text" />
 
             </LinearLayout>
         </LinearLayout>
@@ -184,7 +241,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -193,6 +249,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
