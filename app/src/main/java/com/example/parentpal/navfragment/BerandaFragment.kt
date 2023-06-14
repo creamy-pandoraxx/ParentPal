@@ -58,7 +58,7 @@ class BerandaFragment : Fragment() {
         get() {
             val dataName = resources.getStringArray(R.array.data_name)
             val dataList = ArrayList<Category>()
-            for (i in 6..12){
+            for (i in 7..13){
                 val category = Category(dataName[i])
                 dataList.add(category)
             }

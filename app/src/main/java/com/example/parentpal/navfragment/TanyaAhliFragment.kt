@@ -1,10 +1,12 @@
    package com.example.parentpal.navfragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +15,7 @@ import com.example.parentpal.adapter.CategoryListAdapter
 import com.example.parentpal.adapter.QuestListAdapter
 import com.example.parentpal.model.Category
 import com.example.parentpal.model.Question
+import com.example.parentpal.question.AskActivity
 
    // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +38,8 @@ class TanyaAhliFragment : Fragment() {
     private var dataSet = ArrayList<Question>()
     private lateinit var adapter: QuestListAdapter
 
+    private lateinit var bAsk : Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -55,6 +60,12 @@ class TanyaAhliFragment : Fragment() {
         rv_category = requireView().findViewById(R.id.rv_category)
         rv_quest = requireView().findViewById(R.id.rv_quest)
         searchView = requireView().findViewById(R.id.sv_tanya)
+        bAsk = requireView().findViewById(R.id.btn_quest)
+
+        bAsk.setOnClickListener {
+            val goAsk = Intent(requireContext(), AskActivity::class.java)
+            startActivity(goAsk)
+        }
 
         rv_category.setHasFixedSize(true)
         rv_quest.setHasFixedSize(true)
@@ -84,7 +95,7 @@ class TanyaAhliFragment : Fragment() {
         get() {
             val dataName = resources.getStringArray(R.array.data_name)
             val dataList = ArrayList<Category>()
-            for (i in 0..5){
+            for (i in 1..6){
                 val category = Category(dataName[i])
                 dataList.add(category)
             }

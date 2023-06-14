@@ -10,6 +10,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="data_name">
+        <item>Kategori Pertanyaan</item>
         <item>Semua</item>
         <item>Pendidikan anak usia dini</item>
         <item>Psikologi &amp; Pola Asuh</item>
@@ -59,4 +60,11 @@
         <item>@drawable/drawable_img</item>
         <item>@drawable/drawable_img</item>
     </integer-array>
+
+    <string-array name="data_age">
+        <item>Pilih Rentang Usia</item>
+        <item>0 –  6 Tahun</item>
+        <item>7 –  12 Tahun</item>
+        <item>12 –  17 Tahun</item>
+    </string-array>
 </resources>

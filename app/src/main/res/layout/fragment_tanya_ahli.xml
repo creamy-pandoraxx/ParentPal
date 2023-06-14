@@ -10,8 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-
+        
         <androidx.appcompat.widget.SearchView
             android:id="@+id/sv_tanya"
             style="@style/textstyle_enable"
