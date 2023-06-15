@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".question.AskActivity">
+
+    <ImageView
+        android:id="@+id/iv_backQuest"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_ask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajukan Pertanyaan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/nunito_bold"
+        android:textSize="22sp"
+        android:textColor="@color/text"/>
+
+    <Spinner
+        android:id="@+id/spn_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_ask"
+        tools:ignore="TouchTargetSizeCheck"/>
+
+    <Spinner
+        android:id="@+id/spn_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spn_category"
+        tools:ignore="TouchTargetSizeCheck"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/il_judul"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spn_age"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/text_200"
+        app:boxStrokeColor="@color/primary"
+        app:endIconDrawable="@drawable/dismiss"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/text_200"
+        app:placeholderTextColor="@color/text">
+
+        <EditText
+            android:id="@+id/et_judul"
+            style="@style/textstyle_enable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Judul Pertanyaan"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".navfragment.ProfilFragment">
+
+    <LinearLayout
+        android:id="@+id/akun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="50dp"
+            app:strokeColor="@color/white">
+
+            <ImageView
+                android:id="@+id/fotoPengguna"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/profil" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/namaPengguna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/bold_16"
+                android:textColor="@color/text"
+                android:text="Tatik Anisa"/>
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/emailPengguna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/regular_12"
+                android:textColor="@color/text_200"
+                android:text="tatikanisa@example.com"/>
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/buttoEditProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                style="@style/semiBold_14"
+                android:textColor="@color/primary"
+                android:text="Edit"
+                android:drawableEnd="@drawable/right_icon"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/primary"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/editProfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/akun">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            style="@style/bold_16"
+            android:textColor="@color/text"
+            android:text="Profil"/>
+
+        <TextView
+            android:id="@+id/editProfilAnak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingVertical="10dp"
+            android:paddingStart="16dp"
+            android:padding="8dp"
+            style="@style/semiBold_14"
+            android:textColor="@color/primary"
+            android:text="Profil Anak"
+            android:drawableEnd="@drawable/right_icon"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/primary"/>
+
+        <TextView
+            android:id="@+id/editProfilOrangTua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:paddingStart="16dp"
+            android:padding="8dp"
+            style="@style/semiBold_14"
+            android:textColor="@color/primary"
+            android:text="Profil Orang Tua"
+            android:drawableEnd="@drawable/right_icon"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/primary"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/editProfil">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            style="@style/bold_16"
+            android:textColor="@color/text"
+            android:text="Seputar Aplikasi"/>
+
+        <TextView
+            android:id="@+id/kebijakan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingVertical="10dp"
+            android:paddingStart="16dp"
+            android:padding="8dp"
+            style="@style/semiBold_14"
+            android:textColor="@color/text_200"
+            android:text="Kebijakan &amp; Privasi"
+            android:drawableEnd="@drawable/right_icon"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/text_200"/>
+
+        <TextView
+            android:id="@+id/ulasan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingVertical="10dp"
+            android:paddingStart="16dp"
+            android:padding="8dp"
+            style="@style/semiBold_14"
+            android:textColor="@color/text_200"
+            android:text="Ulasan"
+            android:drawableEnd="@drawable/right_icon"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/text_200"/>
+
+        <TextView
+            android:id="@+id/faq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:paddingStart="16dp"
+            android:padding="8dp"
+            style="@style/semiBold_14"
+            android:textColor="@color/text_200"
+            android:text="Pusat Bantuan &amp; FAQ"
+            android:drawableEnd="@drawable/right_icon"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/text_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/keluar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/about">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            style="@style/bold_16"
+            android:textColor="@color/text"
+            android:text="Akun"/>
+
+        <TextView
+            android:id="@+id/logOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingVertical="10dp"
+            android:paddingStart="16dp"
+            android:padding="8dp"
+            style="@style/semiBold_14"
+            android:textColor="@color/danger"
+            android:text="Keluar Akun"
+            android:drawableEnd="@drawable/dismiss_fill"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/danger"/>
+
+        <TextView
+            android:id="@+id/hapusAkun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:paddingStart="16dp"
+            android:padding="8dp"
+            style="@style/semiBold_14"
+            android:textColor="@color/danger"
+            android:text="Hapus Akun"
+            android:drawableEnd="@drawable/warning_fill"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/danger"/>
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
