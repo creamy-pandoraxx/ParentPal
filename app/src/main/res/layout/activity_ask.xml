@@ -83,4 +83,50 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/il_quest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/il_judul"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/text_200"
+        app:boxStrokeColor="@color/primary"
+        app:endIconDrawable="@drawable/dismiss"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/text_200"
+        app:placeholderTextColor="@color/text">
+
+        <EditText
+            android:id="@+id/et_quest"
+            style="@style/textstyle_enable"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="Pertanyaan"
+            android:inputType="text"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/shape_rectangle_blue"
+        android:text="Kirim Pertanyaan"
+        android:fontFamily="@font/nunito_semi_bold"
+        android:textSize="16sp"
+        android:textColor="@color/primary_300"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
