@@ -46,6 +46,9 @@
         <activity
             android:name=".activity.LandingActivity"
             android:exported="true" />
+
+        <activity android:name=".artikel"
+            android:exported="true"/>
     </application>
 
 </manifest>

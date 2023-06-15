@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".artikel">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="30dp"
+                    android:src="@drawable/back" />
+
+                <ImageView
+                    android:id="@+id/share"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="30dp"
+                    android:src="@drawable/share" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/judul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:text="Mata Juling pada Anak, Ini Penyebab dan Cara Mengatasinya!"
+                    android:textSize="20sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/profil"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/profildr"
+                    android:layout_margin="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Artikel ditulis oleh"
+                            android:textSize="12sp"
+                            android:textColor="@color/text"
+                            android:fontFamily="@font/nunitomedium"
+                            android:paddingRight="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Dr. Psyc. Rasyid"
+                            android:textSize="12sp"
+                            android:textColor="@color/primary"
+                            android:fontFamily="@font/nunitomedium"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Disunting oleh"
+                            android:textSize="12sp"
+                            android:textColor="@color/text"
+                            android:fontFamily="@font/nunitomedium"
+                            android:paddingRight="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Tim ParentPal"
+                            android:textSize="12sp"
+                            android:textColor="@color/primary"
+                            android:fontFamily="@font/nunitomedium"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="25 Juni 2023"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_200"
+                            android:fontFamily="@font/nunitoregular"
+                            android:paddingRight="10dp"/>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/fotosatu"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Bayi yang baru lahir dan masih sensitif, memiliki banyak masalah baik pada tubuhnya maupun bagian lainnya. Salah satu masalah yang mungkin terjadi pada anak adalah mata juling."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Salah satu bentuk umum mata yang tidak selaras, disebut exotropia atau strabismus. Eksotropia, disebut juga walleye, terjadi ketika mata berbalik ke luar."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Ini paling sering terjadi ketika seorang anak fokus pada objek yang jauh."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Mata juling dapat terjadi pada siapa saja dari waktu ke waktu, namun kondisi ini biasanya ini biasanya didiagnosis sejak dini."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Selain itu, ketika anak sedang melamun, lelah, atau sakit juga bisa mengalami kondisi ini."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Kondisi mata ini menyumbang hingga 25 persen dari semua ketidakselarasan mata pada anak-anak."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Untuk mendapatkan informasi lebih lanjut, yuk simak penjelasan tentang mata juling pada anak di bawah ini, Moms."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="Apa Penyebab Mata Juling pada Anak?"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/fotodua"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Mata juling pada anak terjadi ketika ada ketidakseimbangan pada otot mata atau ketika ada masalah koordinasi antara otak dan mata."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Terkadang kondisi kesehatan, seperti katarak atau stroke, dapat menyebabkan ini terjadi. Penyebab mata juling pada anak sebagian besar tidak diketahui."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Mengutip Children's National, anak-anak dengan riwayat keluarga ada kelainan sindrom lebih berisiko untuk mengidap mata juling."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Mereka juga sering terjadi pada anak-anak yang memiliki kelainan sistemik (kromosom atau neurologis) lainnya. Adapun beberapa penyebabnya seperti:"/>
+
+                <TextView
+                    android:id="@+id/bullet"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Tidak diketahui penyebabnya (idiopatik)
+Genetik keluarga
+Down syndrome
+Cerebral palsy Hydrocephalus (Peningkatan tekanan intra-kranial)
+Tumor otak
+Trauma
+Kelainan congenital, yaitu disebabkan kelainan yang terjadi pada trimester pertama kehamilan di masa janin.
+Kelainan refraksi (kacamata), yaitu kelainan yang tidak diterapi dengan baik dapat menyebabkan amblyopia, deprivasi yang berujung pada mata juling.
+Trauma, infeksi, dan penyakit lainnya juga bisa menyebabkan gangguan otot-otot pada bola mata yang menyebabkan kondisi mata juling."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Akan tetapi, sekitar 30 persen anak-anak dengan kondisi mata juling ini memiliki anggota keluarga dengan kondisi yang sama, menurut dr. Junaedi, dokter spesialis mata RS Pondok Indah – Puri Indah."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Ketika tidak ada riwayat keluarga, penyakit, atau kondisi yang dapat diidentifikasi, dokter tidak yakin apa yang menyebabkan strabismus seperti mata juling bisa terjadi."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="Gejala Mata Juling pada Anak"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/fototiga"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Strabismus atau mata juling dapat terjadi sementara waktu (intermiten) atau sepanjang waktu (konstan)."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Namun, strabismus intermiten dapat memburuk saat otot mata melelah di sore hari, misalnya saat sedang sakit."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Untuk gejalanya adapun beberapa bentuk strabismus. Dua yang paling umum adalah:"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="1. Esotropia Akomodatif"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Ini sering terjadi pada kasus rabun dekat yang tidak dapat diobati dan kecenderungan genetik (riwayat keluarga) untuk mata juling berputar."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Karena kemampuan untuk fokus terkait dengan tempat mata bergerak, upaya pemfokusan ekstra diperlukan untuk menjaga objek yang jauh agar tetap masuk."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Fokus yang jelas dapat menyebabkan mata menoleh ke dalam."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Gejala mata juling ini berupa penglihatan ganda, menutup atau menutupi satu mata saat melihat sesuatu yang dekat, dan memiringkan atau memutar kepala."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="MelansirCleveland Clinic, jenis strabismus ini biasanya dimulai pada beberapa tahun sejak Si Kecil lahir."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Kondisi ini biasanya diobati dengan kacamata, tetapi mungkin juga memerlukan penutup mata atau operasi pada otot salah satu atau kedua mata."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="1. Eksotropia Intermiten"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Pada jenis mata juling ini, satu mata akan terfiksasi (berkonsentrasi) pada satu titik, sementara mata lainnya mengarah ke luar."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Gejala yang dirasakan mungkin termasuk penglihatan ganda, sakit kepala, kesulitan membaca, mata lelah, dan menutup satu mata saat melihat benda yang jauh atau saat berada dalam cahaya terang."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Seseorang mungkin tidak memiliki gejala. Adapun dapat dilihat atau diketahui oleh orang lain."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Eksotropia intermiten dapat terjadi pada semua usia. Perawatan mungkin melibatkan kacamata, penutup mata, terapi penglihatan atau operasi pada otot salah satu atau kedua mata."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Mata juling pada anak dapat menyebabkan komplikasi. Misalnya anak merasa sakit kepala, mengalami masalah dalam membaca, ketegangan pada mata, pandangan yang kabur, dan visi 3-D yang buruk."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Mata juling dapat mengganggu penglihatan si kecil disertai penglihatan ganda atau diplopia, yaitu sakit kepala, ujar dr. Junaedi."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Rabun jauh juga umum terjadi pada orang dengan kondisi ini."/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Menurut sebuah penelitian yang diterbitkan dalamAmerican Journal of Ophthalmology, lebih dari 90 persen anak-anak dengan mata juling eksotropia intermiten menjadi rabun ketika berusia 20 tahun."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="Cara Mengobati Mata Juling pada Anak"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/fotoempat"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Moms, mata juling pada anak dapat diobati dengan berbagai perawatan."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Untuk menemukan pengobatan yang tepat tentunya dokter akan memilih perawatan yang disesuaikan dengan gejala yang dirasakan Si Kecil."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Pilihan pengobatan mata juling meliputi:"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="1. Kacamata atau Softlens"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Digunakan pada pasien dengan kelainan refraksi yang tidak bisa diperbaiki."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Kacamata dibutuhkan untuk membantu mengoreksi rabun dekat atau rabun jauh dalam menjaga mata tetap sejajar."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Dengan lensa korektif, mata akan membutuhkan lebih sedikit upaya pemfokusan untuk melihat tetap lurus."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Selain itu, tak jarang mereka juga membutuhkan soflens ataupun lensa khusus."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Lensa khusus ini dapat membelokkan cahaya yang masuk ke mata dan membantu mengurangi jumlah gerakan memutar mata untuk melihat objek."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="2. Terapi Penglihatan"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Cara mengobati mata juling tak jarang dokter akan merekomendasikan terapi penglihatan."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Dapat bekerja pada beberapa jenis strabismus, terutama ketidakcukupan konvergensi (suatu bentuk eksotropia)."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Nantinya ada program aktivitas visual terstruktur untuk meningkatkan koordinasi mata dan fokus mata."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Terapi penglihatan dalam melatih mata dan otak untuk bekerja sama ini dinilai lebih efektif."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Latihan mata ini dapat membantu masalah dengan gerakan mata, fokus mata dan mata bekerja sama serta memperkuat hubungan mata-otak."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="3. Pengobatan"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Selain beberapa tindakan di atas, adapun salep ataupun obat tetes mata yang diresepkan untuk cara mengobati mata juling."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Selain itu, melansir Kids Health, suntikan botulinum toksin tipe A (seperti Botox) dapat melemahkan otot mata yang terlalu bergerak aktif."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Perawatan ini dapat digunakan sebagai alternatif operasi ataupun dibarengi. Nantinya dokter akan merekomendasikan opsi yang tepat untuk mengembalikan mata juling."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="4. Penutup Mata"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Penutup mata diperlukan untuk mengobati ambliopia (mata malas), jika seseorang mengidapnya bersamaan dengan strabismus."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Cara mengobati penglihatan ini juga dapat meningkatkan kontrol mata yang tidak sejajar."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Tak hanya itu, mungkin dokter juga mungkin menyarankan berbagai latihan mata untuk meningkatkan fokus."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="5. Pembedahan"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Selain itu, adanya operasi untuk mata juling atau strabismus pada anak ataupun orang dewasa."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Pembedahan akan mengubah panjang atau posisi otot mata sehingga mata sejajar dengan benar."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Ini dilakukan dengan anestesi umum dengan jahitan sedikit."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Operasi strabismus ini dapat disesuaikan dengan jenis dan gejala mata juling, di mana posisi otot mata disesuaikan setelah operasi."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Mengutip dari Advanced Eye Center, mata juling biasanya diobati dengan operasi penyesuaian ketegangan otot-otot mata dengan pembiusan umum."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Tujuan dari operasi adalah untuk mendapatkan mata yang cukup lurus sempurna sehingga sulit untuk melihat penyimpangan residual."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Pembedahan biasanya cukup berhasil, karena sebagian besar anak-anak dengan kondisi tersebut memiliki penglihatan binokular."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Itu dia Moms berbagai fakta-fakta tentang mata juling ataupun strabismus pada anak dan orang dewasa."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Jika Si Kecil menunjukkan beberapa tanda dari mata juling, ada baiknya berkonsultasi ke dokter untuk menemukan perawatan yang tepat Moms."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_200"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Semoga membantu, ya!"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/text"
+                        android:fontFamily="@font/nunitosemibold"
+                        android:text="Sumber"/>
+
+                    <ImageView
+                        android:id="@+id/dropdown_menu"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/drop"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/text"
+                        android:fontFamily="@font/nunitosemibold"
+                        android:text="https://childrensnational.org/visit/conditions-and-treatments/eye-conditions/esotropia-and-exotropia"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/text"
+                        android:fontFamily="@font/nunitosemibold"
+                        android:text="https://my.clevelandclinic.org/health/diseases/15065-strabismus-crossed-eyes"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/text"
+                        android:fontFamily="@font/nunitosemibold"
+                        android:text="https://www.ajo.com/article/S0002-9394(20)30458-X/abstract"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/text"
+                        android:fontFamily="@font/nunitosemibold"
+                        android:text="https://kidshealth.org/en/parents/strabismus.html"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/text"
+                        android:fontFamily="@font/nunitosemibold"
+                        android:text="http://www.advancedeyecarecentre.ca/eye-health/common-vision-conditions/strabismus/"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="Kategori"/>
+
+
+                    <ImageButton
+                        android:id="@+id/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/button" />
+
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
