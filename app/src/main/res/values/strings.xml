@@ -67,4 +67,30 @@
         <item>7 –  12 Tahun</item>
         <item>12 –  17 Tahun</item>
     </string-array>
+
+    //isi data artikel
+    <integer-array name="article_img">
+        <item>@drawable/artikel_img1</item>
+        <item>@drawable/artikel_img2</item>
+        <item>@drawable/artikel_img3</item>
+    </integer-array>
+
+    <string-array name="article_title">
+        <item>Mata Juling pada\nAnak, Ini Penyebab\ndan Cara\nMengatasinya!</item>
+        <item>Catatan Imunisasi Si\nKecil Hilang? Begini\nLangkahnya, Moms</item>
+        <item>Tanda-Tanda\nMenstruasi pada Anak\npada Masa Pubertas,\nCatat!</item>
+    </string-array>
+
+    <string-array name="article_date">
+        <item>25 Januari 2023</item>
+        <item>20 Juni 2023</item>
+        <item>1 Juni 2023</item>
+    </string-array>
+
+    <string-array name="article_category">
+        <item>Perkembangan Fisik</item>
+        <item>Komunikasi</item>
+        <item>Kognitif</item>
+    </string-array>
+
 </resources>

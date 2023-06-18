@@ -16,20 +16,30 @@ import com.denzcoskun.imageslider.constants.AnimationTypes
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.parentpal.R
+import com.example.parentpal.adapter.ArticleListAdapter
 import com.example.parentpal.adapter.CategoryListAdapter
+import com.example.parentpal.adapter.QuestListAdapter
 import com.example.parentpal.databinding.FragmentBerandaBinding
+import com.example.parentpal.model.Article
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.example.parentpal.model.Category
+import com.example.parentpal.model.Question
 
 class BerandaFragment : Fragment() {
 
     // TODO: Rename and change types of parameters
     private lateinit var rv_kategori: RecyclerView
     private var list = ArrayList<Category>()
+    private lateinit var rv_artikel: RecyclerView
+    private var listArtikel = ArrayList<Article>()
+    private lateinit var rv_tanya: RecyclerView
+    private var listTanya = ArrayList<Question>()
+    private lateinit var questAdapter: QuestListAdapter
+
     private var _binding:FragmentBerandaBinding?= null
     private lateinit var imageSlider : ImageSlider
     private val binding get() = _binding!!
@@ -49,6 +59,18 @@ class BerandaFragment : Fragment() {
 
         list.addAll(listCategory)
         showRecyclerView()
+
+        rv_artikel = requireView().findViewById(R.id.rv_artikel)
+        rv_artikel.setHasFixedSize(true)
+
+        listArtikel.addAll(listArticle)
+        showRvArticle()
+
+        rv_tanya = requireView().findViewById(R.id.rv_tanya)
+        rv_tanya.setHasFixedSize(true)
+
+        listTanya.addAll(listQuest)
+        showRvQuest()
     }
 
     private val listCategory: ArrayList<Category>
@@ -66,6 +88,57 @@ class BerandaFragment : Fragment() {
         rv_kategori.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
         rv_kategori.adapter = CategoryListAdapter(list)
 
+    }
+
+    private val listArticle: ArrayList<Article>
+        get() {
+            val articleImg = resources.obtainTypedArray(R.array.article_img)
+            val articleTitle = resources.getStringArray(R.array.article_title)
+            val articleDate = resources.getStringArray(R.array.article_date)
+            val articleCategory = resources.getStringArray(R.array.article_category)
+            val dataArticle = ArrayList<Article>()
+            for (i in articleTitle.indices){
+                val article = Article(
+                    articleImg.getResourceId(i, -1),
+                    articleTitle[i],
+                    articleDate[i],
+                    articleCategory[i]
+                )
+                dataArticle.add(article)
+            }
+            return dataArticle
+        }
+
+    private fun showRvArticle(){
+        rv_artikel.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        rv_artikel.adapter = ArticleListAdapter(listArtikel)
+    }
+
+    private val listQuest: ArrayList<Question>
+        get() {
+            val dataTitle = resources.getStringArray(R.array.data_title)
+            val dataDate = resources.getStringArray(R.array.data_date)
+            val dataTime = resources.getStringArray(R.array.data_time)
+            val dataQuest = resources.getStringArray(R.array.data_quest)
+            val dataImg = resources.obtainTypedArray(R.array.data_img)
+            val dataListQuest = ArrayList<Question>()
+            for (i in dataTitle.indices){
+                val quest = Question(
+                    dataImg.getResourceId(i, -1),
+                    dataTitle[i],
+                    dataTime[i],
+                    dataDate[i],
+                    dataQuest[i]
+                )
+                dataListQuest.add(quest)
+            }
+            return dataListQuest
+        }
+
+    private fun showRvQuest(){
+        rv_tanya.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+        questAdapter = QuestListAdapter(listQuest.take(1).toList())
+        rv_tanya.adapter = questAdapter
     }
 
     override fun onCreateView(
