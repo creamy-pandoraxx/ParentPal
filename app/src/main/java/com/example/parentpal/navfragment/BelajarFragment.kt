@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
-import com.example.parentpal.Adapter.BelajarPagerAdapter
+import com.example.parentpal.adapter.BelajarPagerAdapter
 import com.example.parentpal.R
 import com.google.android.material.tabs.TabLayout
 

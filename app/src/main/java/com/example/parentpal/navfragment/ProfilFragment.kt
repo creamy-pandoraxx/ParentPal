@@ -18,6 +18,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.Source
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
@@ -25,7 +27,6 @@ class ProfilFragment : Fragment() {
     private lateinit var logOutButton: TextView
     private lateinit var namaPengguna: TextView
     private lateinit var emailPengguna: TextView
-    private lateinit var databaseRef: DatabaseReference
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
@@ -35,7 +36,7 @@ class ProfilFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profil, container, false)
 
-        databaseRef = Firebase.database("https://parentpal-ff1ef-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("users")
+        val db = Firebase.firestore
         auth = FirebaseAuth.getInstance()
 
         namaPengguna = view.findViewById(R.id.namaPengguna)
@@ -44,28 +45,20 @@ class ProfilFragment : Fragment() {
 
         // Mendapatkan ID pengguna saat ini
         val currentUser: FirebaseUser? = auth.currentUser
-        val userId: String = currentUser?.uid ?: ""
+        val email: String = currentUser?.email ?: ""
 
         // Mendapatkan data "nama" dari Firebase Database
-        val userRef: DatabaseReference = databaseRef.child(userId)
-        userRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // Mendapatkan data "nama" dari dataSnapshot
-                val nama: String? = dataSnapshot.child("name").getValue(String::class.java)
-                val email: String? = dataSnapshot.child("email").getValue(String::class.java)
-                // Menggunakan data "nama" yang diperoleh
+        val userRef = db.collection("mobile_users").document(email)
+        userRef.get(Source.CACHE).addOnSuccessListener { documentSnapshot ->
+            if (documentSnapshot.exists()) {
+                val nama: String? = documentSnapshot.getString("name")
+                val email: String? = documentSnapshot.getString("email")
                 namaPengguna.text = "$nama"
                 emailPengguna.text = "$email"
             }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Penanganan kesalahan jika terjadi
-            }
-        })
-
-
-
-
+        }.addOnFailureListener { exception ->
+            // Penanganan kesalahan jika terjadi
+        }
 
 
         // Cari referensi tombol "Keluar Akun"

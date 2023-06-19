@@ -43,16 +43,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/bold_16"
-                android:textColor="@color/text"
-                android:text="Tatik Anisa"/>
+                android:textColor="@color/text"/>
             <TextView
                 android:layout_weight="1"
                 android:id="@+id/emailPengguna"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/regular_12"
-                android:textColor="@color/text_200"
-                android:text="tatikanisa@example.com"/>
+                android:textColor="@color/text_200"/>
             <TextView
                 android:layout_weight="1"
                 android:id="@+id/buttoEditProfil"

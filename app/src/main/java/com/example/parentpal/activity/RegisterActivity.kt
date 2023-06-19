@@ -19,12 +19,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Logger
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
-    private lateinit var database: FirebaseDatabase
-    private lateinit var userRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +40,8 @@ class RegisterActivity : AppCompatActivity() {
         val buttonRegis: Button = findViewById(R.id.buttonRegis)
         val textMasuk: TextView = findViewById(R.id.textMasuk)
 
-        // Inisialisasi Firebase Database
-        database = Firebase.database("https://parentpal-ff1ef-default-rtdb.asia-southeast1.firebasedatabase.app")
-        userRef = database.reference.child("users")
+        //refrensi Firestore
+        val db = Firebase.firestore
 
         // Sandi
         textInputLayout.setEndIconOnClickListener {
@@ -108,7 +107,6 @@ class RegisterActivity : AppCompatActivity() {
             val email = inputEmail.text.toString().trim()
             val password = inputSandi.text.toString().trim()
             val nama = inputNama.text.toString().trim()
-            val konfir = konfirSandi.text.toString().trim()
 
             // Registrasi pengguna dengan Firebase Authentication
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
@@ -118,13 +116,13 @@ class RegisterActivity : AppCompatActivity() {
                         val currentUser = FirebaseAuth.getInstance().currentUser
                         val userId = currentUser?.uid
 
-                        // Simpan data pengguna dalam Realtime Database
+                        // Simpan data pengguna dalam firestore
                         if (userId != null) {
                             val userData = HashMap<String, Any>()
                             userData["email"] = email
                             userData["name"] = nama
 
-                            userRef.child(userId).setValue(userData)
+                            db.collection("mobile_users").document(email).set(userData)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
                                         // Data pengguna berhasil disimpan dalam Realtime Database
