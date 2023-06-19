@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatEditText
 import com.example.parentpal.activity.LandingActivity
 import com.example.parentpal.R
+import com.example.parentpal.activity.HomeActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseUser
@@ -56,7 +57,7 @@ class BioActivity : AppCompatActivity() {
         }
 
         back.setOnClickListener {
-            val backStage = Intent(this@BioActivity, StageActivity::class.java)
+            val backStage = Intent(this@BioActivity, HomeActivity::class.java)
             startActivity(backStage)
         }
 

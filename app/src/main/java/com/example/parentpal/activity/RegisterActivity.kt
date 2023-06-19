@@ -1,5 +1,6 @@
 package com.example.parentpal.activity
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,6 +19,7 @@ import com.example.parentpal.R
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Logger
@@ -108,6 +111,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = inputSandi.text.toString().trim()
             val nama = inputNama.text.toString().trim()
 
+
             // Registrasi pengguna dengan Firebase Authentication
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { registrationTask ->
@@ -115,6 +119,12 @@ class RegisterActivity : AppCompatActivity() {
                         // Registrasi berhasil
                         val currentUser = FirebaseAuth.getInstance().currentUser
                         val userId = currentUser?.uid
+                        currentUser!!.updateProfile(userProfileChangeRequest { displayName = nama }).addOnCompleteListener{ task ->
+                            if (task.isSuccessful) {
+                                Log.d(TAG, "User profile updated.")
+                            }
+
+                        }
 
                         // Simpan data pengguna dalam firestore
                         if (userId != null) {
