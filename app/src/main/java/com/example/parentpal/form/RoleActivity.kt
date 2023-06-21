@@ -12,12 +12,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class RoleActivity : AppCompatActivity() {
 
-    private lateinit var database: FirebaseDatabase
-    private lateinit var userRef: DatabaseReference
+
     private lateinit var radioGroup: RadioGroup
     private lateinit var auth: FirebaseAuth
 
@@ -28,9 +29,8 @@ class RoleActivity : AppCompatActivity() {
 
         val bRole = findViewById<Button>(R.id.btn_role)
 
-        database = Firebase.database("https://parentpal-ff1ef-default-rtdb.asia-southeast1.firebasedatabase.app")
-        userRef = database.reference
 
+        val db = Firebase.firestore
         auth = FirebaseAuth.getInstance()
 
 
@@ -40,16 +40,16 @@ class RoleActivity : AppCompatActivity() {
             val selectedRadioButtonId = radioGroup.checkedRadioButtonId
             val selectedRadioButton = findViewById<RadioButton>(selectedRadioButtonId)
             val selectedRole = selectedRadioButton.text.toString()
+            val role = hashMapOf<String, Any>(
+                "role" to selectedRole
+            )
 
-            // Simpan pilihan role ke Firebase Realtime Database
+            // Simpan pilihan role ke Firestore
             val currentUser = auth.currentUser
             if (currentUser != null) {
-                val userId = currentUser.uid
-                userRef.child("users").child(userId).child("role").setValue(selectedRole)
+                val userEmail = currentUser.email.toString()
+                db.collection("mobile_users").document(userEmail).set(role, SetOptions.merge())
             }
-
-
-
             val goStage = Intent(this@RoleActivity, StageActivity::class.java)
             startActivity(goStage)
         }

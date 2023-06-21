@@ -30,6 +30,8 @@ import com.google.firebase.ktx.Firebase
 import com.example.parentpal.model.Category
 import com.example.parentpal.model.Question
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.firestore.Source
+import com.google.firebase.firestore.ktx.firestore
 
 class BerandaFragment : Fragment() {
 
@@ -46,7 +48,6 @@ class BerandaFragment : Fragment() {
     private var _binding:FragmentBerandaBinding?= null
     private lateinit var imageSlider : ImageSlider
     private val binding get() = _binding!!
-    private lateinit var databaseRef: DatabaseReference
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -171,7 +172,7 @@ class BerandaFragment : Fragment() {
         val root: View = binding.root
         imageSlider = binding.imageSlider
 
-        databaseRef = Firebase.database("https://parentpal-ff1ef-default-rtdb.asia-southeast1.firebasedatabase.app").reference.child("users")
+        val db = Firebase.firestore
         auth = FirebaseAuth.getInstance()
 
         val imageList = ArrayList<SlideModel>()
@@ -183,25 +184,30 @@ class BerandaFragment : Fragment() {
 
 
 
-        // Mendapatkan ID pengguna saat ini
+        // Mendapatkan Email pengguna saat ini
         val currentUser: FirebaseUser? = auth.currentUser
-        val userId: String = currentUser?.uid ?: ""
+        val email: String = currentUser?.email ?: ""
 
-        // Mendapatkan data "nama" dari Firebase Database
-        val userRef: DatabaseReference = databaseRef.child(userId)
-        userRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // Mendapatkan data "nama" dari dataSnapshot
-                val nama: String? = dataSnapshot.child("name").getValue(String::class.java)
-                // Menggunakan data "nama" yang diperoleh
-                binding.tvTitle.text = "Halo, $nama"
-            }
+            // Mendapatkan data "nama" dari Firestore
+            val userRef = db.collection("mobile_users").document(email)
+            userRef.get(Source.CACHE)
+                .addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot.exists()) {
+                        // Mendapatkan data "nama" dari dokumen
+                        val nama: String? = documentSnapshot.getString("name")
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Penanganan kesalahan jika terjadi
-            }
-        })
+                        // Mendapatkan string sebelum spasi
+                        val firstName: String = nama?.split(" ")?.get(0) ?: ""
 
+                        // Menggunakan string "firstName" yang diperoleh
+                        binding.tvTitle.text = "Halo, $firstName"
+                    } else {
+                        // Dokumen tidak ditemukan
+                    }
+                }
+                .addOnFailureListener { e ->
+                    // Gagal mengambil data
+                }
 
         return root
     }
