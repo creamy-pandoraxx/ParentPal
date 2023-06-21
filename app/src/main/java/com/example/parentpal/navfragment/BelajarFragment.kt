@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
-import com.example.parentpal.Adapter.BelajarPagerAdapter
 import com.example.parentpal.R
 import com.google.android.material.tabs.TabLayout
+import com.example.parentpal.Adapter.BelajarPagerAdapter
 
-class BelajarFragment : Fragment() {
+class BelajarFragment : Fragment(){
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +35,5 @@ class BelajarFragment : Fragment() {
         tabLayout.setupWithViewPager(viewPager)
 
         return view
-
     }
-
 }

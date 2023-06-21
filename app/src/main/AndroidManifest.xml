@@ -33,7 +33,7 @@
         </activity>
         <activity
             android:name=".form.RoleActivity"
-            android:exported="true"></activity>
+            android:exported="true"/>
         <activity
             android:name=".form.StageActivity"
             android:exported="true" />
@@ -47,7 +47,7 @@
             android:name=".activity.LandingActivity"
             android:exported="true" />
 
-        <activity android:name=".artikel"
+        <activity android:name=".activity.ArticleActivity"
             android:exported="true"/>
     </application>
 

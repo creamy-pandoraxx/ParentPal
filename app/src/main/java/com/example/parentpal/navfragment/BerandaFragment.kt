@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import android.widget.TextView
 import androidx.core.view.children
 import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.example.parentpal.model.Category
 import com.example.parentpal.model.Question
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BerandaFragment : Fragment() {
 
@@ -40,6 +42,7 @@ class BerandaFragment : Fragment() {
     private var listTanya = ArrayList<Question>()
     private lateinit var questAdapter: QuestListAdapter
 
+    private lateinit var nextQuest : TextView
     private var _binding:FragmentBerandaBinding?= null
     private lateinit var imageSlider : ImageSlider
     private val binding get() = _binding!!
@@ -71,8 +74,23 @@ class BerandaFragment : Fragment() {
 
         listTanya.addAll(listQuest)
         showRvQuest()
+
+        nextQuest = requireView().findViewById(R.id.tv_next)
+
+        nextQuest.setOnClickListener {
+            val fragmentTanya = TanyaAhliFragment()
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.layout_frame, fragmentTanya)
+                .addToBackStack(null)
+                .commit()
+
+            val bottomNavigationView : BottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation)
+            bottomNavigationView.selectedItemId = R.id.item_3
+        }
     }
 
+    //category
     private val listCategory: ArrayList<Category>
         get() {
             val dataName = resources.getStringArray(R.array.data_name)
@@ -90,6 +108,7 @@ class BerandaFragment : Fragment() {
 
     }
 
+    //article
     private val listArticle: ArrayList<Article>
         get() {
             val articleImg = resources.obtainTypedArray(R.array.article_img)
@@ -114,6 +133,7 @@ class BerandaFragment : Fragment() {
         rv_artikel.adapter = ArticleListAdapter(listArtikel)
     }
 
+    //question
     private val listQuest: ArrayList<Question>
         get() {
             val dataTitle = resources.getStringArray(R.array.data_title)

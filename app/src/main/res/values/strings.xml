@@ -93,4 +93,34 @@
         <item>Kognitif</item>
     </string-array>
 
+    //isi data video
+    <integer-array name="video_img">
+        <item>@drawable/video1</item>
+        <item>@drawable/video2</item>
+        <item>@drawable/video3</item>
+    </integer-array>
+
+    <string-array name="video_title">
+        <item>Mata Juling pada Anak, Ini Penyebab dan Cara Mengatasinya!</item>
+        <item>Catatan Imunisasi Si Kecil Hilang? Begini Langkahnya, Moms</item>
+        <item>Tanda-Tanda Menstruasi pada Anak pada Masa Pubertas,Catat!</item>
+    </string-array>
+
+    <string-array name="video_views">
+        <item>169 x ditonton</item>
+        <item>169 x ditonton</item>
+        <item>169 x ditonton</item>
+    </string-array>
+
+    <string-array name="video_date">
+        <item>25 Januari 2023</item>
+        <item>20 Juni 2023</item>
+        <item>1 Juni 2023</item>
+    </string-array>
+
+    <string-array name="video_cat">
+        <item>Perkembangan Fisik</item>
+        <item>Komunikasi</item>
+        <item>Kognitif</item>
+    </string-array>
 </resources>

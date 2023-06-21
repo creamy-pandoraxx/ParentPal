@@ -29,6 +29,7 @@
         android:textSize="22sp"
         android:textColor="@color/text"/>
 
+
     <Spinner
         android:id="@+id/spn_category"
         android:layout_width="match_parent"

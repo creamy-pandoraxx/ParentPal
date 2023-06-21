@@ -23,14 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/search_bar"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:background="@drawable/textfield_bg"
-
-                app:searchIcon="@drawable/ic_search" />
-
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
@@ -39,14 +31,16 @@
                 app:tabIndicatorColor="@color/primary"
                 app:tabIndicatorFullWidth="true"
                 app:tabIndicatorHeight="2dp"
-                app:tabSelectedTextAppearance="@style/semiBold_14" />
+                app:tabSelectedTextAppearance="@style/semiBold_14"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/topSection"/>
+            android:layout_below="@id/topSection"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </RelativeLayout>
 
