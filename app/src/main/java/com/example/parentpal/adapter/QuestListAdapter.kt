@@ -10,7 +10,7 @@ import com.example.parentpal.R
 import com.example.parentpal.model.Question
 import java.util.Locale
 
-class QuestListAdapter(private  val question: ArrayList<Question>) : RecyclerView.Adapter<QuestListAdapter.QuestViewHolder>(){
+class QuestListAdapter(private  val question: List<Question>) : RecyclerView.Adapter<QuestListAdapter.QuestViewHolder>(){
     private var filteredQuestionList : ArrayList<Question> = ArrayList(question)
 
     class QuestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

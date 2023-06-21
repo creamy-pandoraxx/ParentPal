@@ -35,7 +35,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cd_bio"
         android:layout_width="match_parent"
-        android:layout_height="246dp"
+        android:layout_height="wrap_content"
         app:strokeColor="@color/background_300"
         app:cardBackgroundColor="@color/background_200"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,40 +85,69 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="10dp"/>
 
-
-            <EditText
-                android:id="@+id/et_nama"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="14dp"
-                android:backgroundTint="@color/background_300"
-                android:hint="Nama"
-                android:padding="14dp"
-                android:textColorHint="@color/text"
-                app:layout_constraintEnd_toEndOf="parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/il_nama"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_bio1"
-                android:fontFamily="@font/nunito_medium"
-                android:inputType="textPersonName"
-                android:textSize="14sp"/>
-
-            <EditText
-                android:id="@+id/et_tgl"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/text_200"
+                app:boxStrokeColor="@color/primary"
+                app:endIconDrawable="@drawable/dismiss"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/primary"
+                app:hintTextColor="@color/text_200"
                 android:layout_marginStart="14dp"
                 android:layout_marginEnd="14dp"
-                android:backgroundTint="@color/background_300"
-                android:hint="Tanggal Lahir"
-                android:padding="14dp"
-                android:textColorHint="@color/text"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                app:placeholderTextColor="@color/text">
+
+                <EditText
+                    android:id="@+id/et_nama"
+                    style="@style/textstyle_enable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/il_birth"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_nama"
-                android:fontFamily="@font/nunito_medium"
-                android:textSize="14sp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/il_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/text_200"
+                app:boxStrokeColor="@color/primary"
+                app:endIconDrawable="@drawable/dismiss"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/primary"
+                app:hintTextColor="@color/text_200"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginTop="16dp"
+                app:placeholderTextColor="@color/text">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_birth"
+                    style="@style/textstyle_enable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tanggal Lahir"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:onClick="showDatePicker"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tv_gender"
@@ -129,9 +158,10 @@
                 android:layout_marginEnd="14dp"
                 android:text="Jenis Kelamin"
                 android:paddingStart="14dp"
+                app:layout_goneMarginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_tgl"
+                app:layout_constraintTop_toBottomOf="@id/il_birth"
                 android:fontFamily="@font/nunito_medium"
                 android:textColor="@color/text"
                 android:textSize="14sp"/>
@@ -143,6 +173,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_gender"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="16dp"
                 android:layout_marginStart="16dp">
 
                 <RadioButton

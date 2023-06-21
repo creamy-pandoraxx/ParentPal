@@ -21,4 +21,8 @@
         <item name="fontFamily">@font/nunito_semi_bold</item>
         <item name="android:textSize">14sp</item>
     </style>
+    <style name="DatePickerDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="colorAccent">@color/primary</item>
+        <item name="colorPrimary">@color/primary</item>
+    </style>
 </resources>

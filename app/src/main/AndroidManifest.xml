@@ -49,9 +49,9 @@
         <activity
             android:name=".activity.LandingActivity"
             android:exported="true" />
-        <activity
-            android:name=".artikel"
-            android:exported="true" />
+
+        <activity android:name=".activity.ArticleActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

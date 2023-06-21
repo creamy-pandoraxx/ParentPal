@@ -30,6 +30,7 @@ class HomeActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.layout_frame, fragment)
                         .commit()
+                    bottomNavigationView.menu.findItem(R.id.item_1).isChecked = true
                     true
                 }
                 R.id.item_2 -> {
@@ -38,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.layout_frame, fragment)
                         .commit()
+                    bottomNavigationView.menu.findItem(R.id.item_2).isChecked = true
                     true
                 }
                 R.id.item_3 -> {
@@ -45,6 +47,7 @@ class HomeActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.layout_frame, fragment)
                         .commit()
+                    bottomNavigationView.menu.findItem(R.id.item_3).isChecked = true
                     true
                 }
                 R.id.item_4 -> {
@@ -52,6 +55,7 @@ class HomeActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.layout_frame, fragment)
                         .commit()
+                    bottomNavigationView.menu.findItem(R.id.item_4).isChecked = true
                     true
                 }
                 else -> false
