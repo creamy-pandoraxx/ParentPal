@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
+import com.example.parentpal.ArtikelWebviewActivity
 import com.example.parentpal.R
 import com.example.parentpal.activity.RegisterActivity
 import com.example.parentpal.artikel
@@ -29,7 +30,7 @@ class BacaanFragment : Fragment() {
 
 
         artikelBaca.setOnClickListener {
-            val intent = Intent(requireContext(), artikel::class.java)
+            val intent = Intent(requireContext(), ArtikelWebviewActivity::class.java)
             startActivity(intent)
         }
 
