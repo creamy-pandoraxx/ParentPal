@@ -1,6 +1,8 @@
 package com.example.parentpal.adapter
 
+import android.content.ContentValues
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,9 @@ import com.example.parentpal.ArtikelWebviewActivity
 import com.example.parentpal.R
 import com.example.parentpal.model.Article
 import com.example.parentpal.tabBelajar.BacaanFragment
+import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import java.util.Locale
 
@@ -30,12 +35,13 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
     }
 
     override fun getItemCount(): Int {
-        //return filteredArticleList.size
-        return article.size
+        return filteredArticleList.size
+        //return article.size
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-        val artikel = article[position]
+        //val artikel = article[position]
+        val artikel = filteredArticleList[position]
 
         Picasso.get().load(artikel.thumbnail).into(holder.imArticle)
         //holder.imArticle.setImageResource(artikel.thumbnail)
@@ -52,13 +58,26 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
     }
 
     fun filterArticle(query: String) {
-        val lowerCaseQuery = query.toLowerCase(Locale.getDefault())
-        //val lowerCaseQuery = query.lowercase(Locale.getDefault())
+        val lowerCaseQuery = query.lowercase(Locale.getDefault())
         filteredArticleList.clear()
 
         if (lowerCaseQuery.isEmpty()) {
-            filteredArticleList.addAll(article)
+            //filteredArticleList.addAll(article)
             //fetchArticles()
+            val db = Firebase.firestore
+            db.collection("artikel")
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val article = document.toObject(Article::class.java)
+                        //listArticle.add(article)
+                        filteredArticleList.add(article)
+                    }
+                    notifyDataSetChanged()
+                }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
+                }
         } else {
             for (artikel in article) {
                 if (artikel.judul?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true ||
@@ -68,7 +87,6 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
                 }
             }
         }
-
         notifyDataSetChanged()
     }
 

@@ -1,6 +1,8 @@
 package com.example.parentpal.adapter
 
+import android.content.ContentValues
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.parentpal.R
 import com.example.parentpal.activity.ArticleActivity
 import com.example.parentpal.model.Article
+import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import java.util.Locale
 
@@ -49,14 +54,27 @@ class ArticleVerticalAdapter(private val article: List<Article>): RecyclerView.A
     }
 
         fun filterArticleVertical(query: String){
-            val lowerCaseQuery = query.toLowerCase(Locale.getDefault())
+            val lowerCaseQuery = query.lowercase(Locale.getDefault())
             filteredArticleVertical.clear()
             if (lowerCaseQuery.isEmpty()){
-                filteredArticleVertical.addAll(article)
+                //filteredArticleVertical.addAll(article)
+                val db = Firebase.firestore
+                db.collection("artikel")
+                    .get()
+                    .addOnSuccessListener { result ->
+                        for (document: QueryDocumentSnapshot in result) {
+                            val article = document.toObject(Article::class.java)
+                            filteredArticleVertical.add(article)
+                        }
+                        notifyDataSetChanged()
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
+                    }
             } else {
                 for (artikel in article){
-                    if (artikel.judul?.toLowerCase(Locale.getDefault())!!.contains(lowerCaseQuery)  ||
-                        artikel.Kategori?.toLowerCase(Locale.getDefault())!!.contains(lowerCaseQuery)
+                    if (artikel.judul?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true ||
+                        artikel.Kategori?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true
                     ) {
                         filteredArticleVertical.add(artikel)
                     }

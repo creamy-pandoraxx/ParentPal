@@ -189,6 +189,7 @@ class BacaanFragment : Fragment() {
         rvArtikelVertical.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvArtikelVertical.adapter = adapterArticleVer
         fetchArticlesVer()
+        adapterArticleVer.filterArticleVertical("")
     }
 
     private fun fetchArticlesVer() {
