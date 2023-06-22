@@ -2,6 +2,7 @@ package com.example.parentpal.adapter
 
 import android.content.ContentValues
 import android.content.Intent
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
