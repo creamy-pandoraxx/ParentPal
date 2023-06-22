@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.parentpal.R
 import com.example.parentpal.activity.ArticleActivity
 import com.example.parentpal.model.Article
+import com.squareup.picasso.Picasso
 import java.util.Locale
 
 class ArticleVerticalAdapter(private val article: List<Article>): RecyclerView.Adapter<ArticleVerticalAdapter.ArticleVerticalViewHolder>() {
@@ -35,10 +36,11 @@ class ArticleVerticalAdapter(private val article: List<Article>): RecyclerView.A
     override fun onBindViewHolder(holder: ArticleVerticalViewHolder, position: Int) {
         val artikel = filteredArticleVertical[position]
 
-        holder.ivArticle.setImageResource(artikel.imgArticle)
-        holder.titleArticle.text = (artikel.titleArticle)
-        holder.dateArticle.text = (artikel.dateArticle)
-        holder.categoryArticle.text = (artikel.categoryArticle)
+        Picasso.get().load(artikel.thumbnail).into(holder.ivArticle)
+        //holder.ivArticle.setImageResource(artikel.thumbnail)
+        holder.titleArticle.text = (artikel.judul)
+        holder.dateArticle.text = (artikel.tanggal)
+        holder.categoryArticle.text = (artikel.Kategori)
 
         holder.ivArticle.setOnClickListener {
             val intent = Intent(holder.itemView.context, ArticleActivity::class.java)
@@ -53,8 +55,8 @@ class ArticleVerticalAdapter(private val article: List<Article>): RecyclerView.A
                 filteredArticleVertical.addAll(article)
             } else {
                 for (artikel in article){
-                    if (artikel.titleArticle.toLowerCase(Locale.getDefault()).contains(lowerCaseQuery) ||
-                        artikel.categoryArticle.toLowerCase(Locale.getDefault()).contains(lowerCaseQuery)
+                    if (artikel.judul?.toLowerCase(Locale.getDefault())!!.contains(lowerCaseQuery)  ||
+                        artikel.Kategori?.toLowerCase(Locale.getDefault())!!.contains(lowerCaseQuery)
                     ) {
                         filteredArticleVertical.add(artikel)
                     }

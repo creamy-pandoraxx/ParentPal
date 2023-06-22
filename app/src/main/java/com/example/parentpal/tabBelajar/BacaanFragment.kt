@@ -1,6 +1,8 @@
 package com.example.parentpal.tabBelajar
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +22,9 @@ import com.example.parentpal.adapter.ArticleListAdapter
 import com.example.parentpal.adapter.CategoryListAdapter
 import com.example.parentpal.model.Article
 import com.example.parentpal.model.Category
+import com.google.firebase.firestore.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class BacaanFragment : Fragment() {
@@ -33,6 +38,7 @@ class BacaanFragment : Fragment() {
     private lateinit var svBacaan: SearchView
     private lateinit var adapterArticle: ArticleListAdapter
     private lateinit var adapterArticleVer: ArticleVerticalAdapter
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,15 +53,19 @@ class BacaanFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         svBacaan = requireView().findViewById<SearchView>(R.id.sv_bacaan)
         setupSvBacaan()
+        adapterArticle = ArticleListAdapter(listArticle)
+
 
         rvArtikel = requireView().findViewById(R.id.rvArticle)
         rvArtikel.setHasFixedSize(true)
-        listArticle.addAll(listArtikel)
+        //listArticle.addAll(listArtikel)
+        //listArticle = arrayListOf()
         showRvArticle()
 
         rvArtikelVertical = requireView().findViewById(R.id.rvArtikelVer)
         rvArtikelVertical.setHasFixedSize(true)
-        listArticleVertical.addAll(listArtikelVer)
+        //listArticleVertical.addAll(listArtikelVer)
+        listArticleVertical = arrayListOf()
         showRvArticleVer()
 
         rvKategori = requireView().findViewById(R.id.rvKategori)
@@ -109,9 +119,9 @@ class BacaanFragment : Fragment() {
     }
 
     //rvArtikel
-    private val listArtikel: ArrayList<Article>
+    /*private val listArtikel: ArrayList<Article>
         get() {
-            val articleImg = resources.obtainTypedArray(R.array.article_img)
+            val articleImg = resources.getStringArray(R.array.article_img)
             val articleTitle = resources.getStringArray(R.array.article_title)
             val articleDate = resources.getStringArray(R.array.article_date)
             val articleCategory = resources.getStringArray(R.array.article_category)
@@ -126,16 +136,36 @@ class BacaanFragment : Fragment() {
                 dataArticle.add(article)
             }
             return dataArticle
-        }
+        }*/
 
     private fun showRvArticle() {
         adapterArticle = ArticleListAdapter(listArticle)
+
         rvArtikel.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rvArtikel.adapter = adapterArticle
+        fetchArticles()
+        adapterArticle.filterArticle("")
     }
 
+    private fun fetchArticles() {
+        val db = Firebase.firestore
+        db.collection("artikel")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document: QueryDocumentSnapshot in result) {
+                    val article = document.toObject(Article::class.java)
+                    listArticle.add(article)
+                }
+                adapterArticle.notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                Log.e(TAG, "Error getting articles: ${exception.message}")
+            }
+    }
+
+
     //rvArtikelVer
-    private val listArtikelVer: ArrayList<Article>
+    /*private val listArtikelVer: ArrayList<Article>
         get() {
             val articleImg = resources.obtainTypedArray(R.array.article_img)
             val articleTitle = resources.getStringArray(R.array.article_title)
@@ -152,12 +182,29 @@ class BacaanFragment : Fragment() {
                 dataArticle.add(article)
             }
             return dataArticle
-        }
+        }*/
 
     private fun showRvArticleVer() {
         adapterArticleVer = ArticleVerticalAdapter(listArticleVertical)
         rvArtikelVertical.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvArtikelVertical.adapter = adapterArticleVer
+        fetchArticlesVer()
+    }
+
+    private fun fetchArticlesVer() {
+        val db = Firebase.firestore
+        db.collection("artikel")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document: QueryDocumentSnapshot in result) {
+                    val article = document.toObject(Article::class.java)
+                    listArticleVertical.add(article)
+                }
+                adapterArticleVer.notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                Log.e(TAG, "Error getting articles: ${exception.message}")
+            }
     }
 
     //rvKategori

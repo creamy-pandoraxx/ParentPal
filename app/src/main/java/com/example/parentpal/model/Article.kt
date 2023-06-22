@@ -1,8 +1,9 @@
 package com.example.parentpal.model
 
 data class Article(
-    val imgArticle: Int,
-    val titleArticle: String,
-    val dateArticle: String,
-    val categoryArticle: String
+    val thumbnail: String ?= null,
+    val judul: String ?= null,
+    val tanggal: String ?= null,
+    val Kategori: String ?= null,
+    val kontent: String ?= null,
 )

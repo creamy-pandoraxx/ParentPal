@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.parentpal.ArtikelWebviewActivity
 import com.example.parentpal.R
-import com.example.parentpal.activity.ArticleActivity
 import com.example.parentpal.model.Article
+import com.example.parentpal.tabBelajar.BacaanFragment
+import com.squareup.picasso.Picasso
 import java.util.Locale
 
 class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adapter<ArticleListAdapter.ArticleViewHolder>() {
@@ -28,38 +30,48 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
     }
 
     override fun getItemCount(): Int {
-        return filteredArticleList.size
+        //return filteredArticleList.size
+        return article.size
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-        val artikel = filteredArticleList[position]
+        val artikel = article[position]
 
-        holder.imArticle.setImageResource(artikel.imgArticle)
-        holder.tvTitleArticle.text = (artikel.titleArticle)
-        holder.tvDateArticle.text = (artikel.dateArticle)
-        holder.tvCategoryArticle.text = (artikel.categoryArticle)
+        Picasso.get().load(artikel.thumbnail).into(holder.imArticle)
+        //holder.imArticle.setImageResource(artikel.thumbnail)
+        holder.tvTitleArticle.text = (artikel.judul)
+        holder.tvDateArticle.text = (artikel.tanggal)
+        holder.tvCategoryArticle.text = (artikel.Kategori)
 
         holder.imArticle.setOnClickListener {
-            val intent= Intent(holder.itemView.context, ArticleActivity::class.java)
+            val intent = Intent(holder.itemView.context, ArtikelWebviewActivity::class.java)
+            intent.putExtra("article_url", artikel.judul)
             holder.itemView.context.startActivity(intent)
         }
+
     }
 
-    fun filterArticle(query: String){
+    fun filterArticle(query: String) {
         val lowerCaseQuery = query.toLowerCase(Locale.getDefault())
+        //val lowerCaseQuery = query.lowercase(Locale.getDefault())
         filteredArticleList.clear()
-        if (lowerCaseQuery.isEmpty()){
+
+        if (lowerCaseQuery.isEmpty()) {
             filteredArticleList.addAll(article)
+            //fetchArticles()
         } else {
-            for (artikel in article){
-                if (artikel.titleArticle.toLowerCase(Locale.getDefault()).contains(lowerCaseQuery) ||
-                    artikel.categoryArticle.toLowerCase(Locale.getDefault()).contains(lowerCaseQuery)
+            for (artikel in article) {
+                if (artikel.judul?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true ||
+                    artikel.Kategori?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true
                 ) {
                     filteredArticleList.add(artikel)
                 }
             }
         }
+
         notifyDataSetChanged()
     }
+
+
 
 }
