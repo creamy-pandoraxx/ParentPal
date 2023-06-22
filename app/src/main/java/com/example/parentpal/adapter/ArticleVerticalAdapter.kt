@@ -40,10 +40,10 @@ class ArticleVerticalAdapter(private val article: List<Article>): RecyclerView.A
         holder.dateArticle.text = (artikel.dateArticle)
         holder.categoryArticle.text = (artikel.categoryArticle)
 
-        holder.ivArticle.setOnClickListener {
-            val intent = Intent(holder.itemView.context, ArticleActivity::class.java)
-            holder.itemView.context.startActivity(intent)
-        }
+//        holder.ivArticle.setOnClickListener {
+//            val intent = Intent(holder.itemView.context, ArticleActivity::class.java)
+//            holder.itemView.context.startActivity(intent)
+//        }
     }
 
         fun filterArticleVertical(query: String){

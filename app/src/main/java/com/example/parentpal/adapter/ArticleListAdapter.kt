@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.parentpal.ArtikelWebviewActivity
 import com.example.parentpal.R
 import com.example.parentpal.activity.ArticleActivity
 import com.example.parentpal.model.Article
@@ -40,7 +41,7 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
         holder.tvCategoryArticle.text = (artikel.categoryArticle)
 
         holder.imArticle.setOnClickListener {
-            val intent= Intent(holder.itemView.context, ArticleActivity::class.java)
+            val intent= Intent(holder.itemView.context, ArtikelWebviewActivity::class.java)
             holder.itemView.context.startActivity(intent)
         }
     }

@@ -8,6 +8,7 @@
     <string name="halo">Halo,</string>
     <string name="semoga_hari_anda_menyenangkan">Semoga hari Anda menyenangkan!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="listFase">1. Pemantauan yang lebih efektif \n2. Pemahaman kebutuhan yang lebih baik \n3. Pelacakan kemajuan \n4. Kolaborasi yang lebih baik \n5. Perencanaan yang lebih baik</string>
 
     <string-array name="data_name">
         <item>Kategori Pertanyaan</item>
@@ -123,4 +124,32 @@
         <item>Komunikasi</item>
         <item>Kognitif</item>
     </string-array>
+
+    //data webinar
+    <integer-array name="data_img_web">
+        <item>@drawable/img_web1</item>
+        <item>@drawable/img_web2</item>
+    </integer-array>
+
+    <string-array name="data_title_web">
+        <item>BinaPal: Menjadi Orang Tua Cerdas dan\nBijaksana Di Era Digital</item>
+        <item>BinaPal: Memahami Kebutuhan Dasar\nTumbuh Kembang Anak</item>
+    </string-array>
+
+    <string-array name="data_name_doc">
+        <item>dr. Psyc. Maryam Inaya</item>
+        <item>dr. Psyc. Maryam Inaya</item>
+    </string-array>
+
+    <string-array name="data_date_web">
+        <item>10 Juni 2023</item>
+        <item>11 Juni 2023</item>
+    </string-array>
+
+    <string-array name="data_time_web">
+        <item>19.00 - 20.00 WIB</item>
+        <item>19.00 - 20.00 WIB</item>
+    </string-array>
+
+
 </resources>

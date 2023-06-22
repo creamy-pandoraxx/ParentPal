@@ -1,5 +1,6 @@
 package com.example.parentpal.question
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.parentpal.R
+import com.example.parentpal.navfragment.TanyaAhliFragment
 
 class AskActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +25,6 @@ class AskActivity : AppCompatActivity() {
 
         val spnAge : Spinner = findViewById(R.id.spn_age)
         val itemAge= resources.getStringArray(R.array.data_age)
-
 
         val spinnerAdapter = object : ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items) {
             override fun isEnabled(position: Int): Boolean {
