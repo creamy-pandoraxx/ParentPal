@@ -813,7 +813,8 @@ Trauma, infeksi, dan penyakit lainnya juga bisa menyebabkan gangguan otot-otot p
                     android:textSize="14sp"
                     android:textColor="@color/text_200"
                     android:fontFamily="@font/nunitoregular"
-                    android:text="Semoga membantu, ya!"/>
+                    android:text="Semoga membantu, ya!"
+                    android:paddingBottom="20dp"/>
 
             </LinearLayout>
 
@@ -832,17 +833,19 @@ Trauma, infeksi, dan penyakit lainnya juga bisa menyebabkan gangguan otot-otot p
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:textSize="14sp"
                         android:textColor="@color/text"
                         android:fontFamily="@font/nunitosemibold"
-                        android:text="Sumber"/>
+                        android:text="Sumber"
+                        android:paddingEnd="250dp"
+                        android:layout_gravity="center"/>
 
                     <ImageView
                         android:id="@+id/dropdown_menu"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/drop"/>
+                        android:src="@drawable/drop"
+                        android:layout_gravity="center"/>
 
                 </LinearLayout>
 
@@ -915,6 +918,178 @@ Trauma, infeksi, dan penyakit lainnya juga bisa menyebabkan gangguan otot-otot p
                     android:textColor="@color/text"
                     android:fontFamily="@font/nunitobold"
                     android:text="Kategori"/>
+
+                <Button
+                    android:id="@+id/buttt"
+                    android:background="@drawable/linebutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Perkembangan Fisik"
+                    android:textSize="10sp"
+                    android:textColor="@color/accent"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="Kata Kunci Terkait"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/anak"
+                        android:background="@drawable/linebutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_semi_bold"
+                        android:text="Kesehatan Anak"
+                        android:textSize="14sp"
+                        android:textColor="@color/primary"
+                        android:layout_margin="10dp"/>
+
+                    <Button
+                        android:id="@+id/mata"
+                        android:background="@drawable/linebutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_semi_bold"
+                        android:text="Kesehatan Mata"
+                        android:textSize="14sp"
+                        android:textColor="@color/primary"
+                        android:layout_margin="10dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/kelainanmata"
+                        android:background="@drawable/linebutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_semi_bold"
+                        android:text="Kelainan Mata"
+                        android:textSize="14sp"
+                        android:textColor="@color/primary"
+                        android:layout_margin="10dp"/>
+
+                    <Button
+                        android:id="@+id/matajuling"
+                        android:background="@drawable/linebutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_semi_bold"
+                        android:text="Mata Juling"
+                        android:textSize="14sp"
+                        android:textColor="@color/primary"
+                        android:layout_margin="10dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/balitaanak"
+                        android:background="@drawable/linebutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_semi_bold"
+                        android:text="Balita & Anak"
+                        android:textSize="14sp"
+                        android:textColor="@color/primary"
+                        android:layout_margin="10dp"/>
+
+                    <Button
+                        android:id="@+id/mataanak"
+                        android:background="@drawable/linebutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_semi_bold"
+                        android:text="Mata Anak"
+                        android:textSize="14sp"
+                        android:textColor="@color/primary"
+                        android:layout_margin="10dp"/>
+
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingTop="30dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:paddingBottom="30dp"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="50dp"
+                        android:paddingEnd="50dp">
+
+                        <ImageView
+                            android:id="@+id/komentar"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/komentar" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_semi_bold"
+                            android:text="Komentar"
+                            android:textColor="@color/text_200"
+                            android:textSize="12sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="50dp"
+                        android:paddingEnd="50dp">
+
+                        <ImageView
+                            android:id="@+id/sukai"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/sukai" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_semi_bold"
+                            android:text="Sukai"
+                            android:textColor="@color/text_200"
+                            android:textSize="12sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
 
             </LinearLayout>
 

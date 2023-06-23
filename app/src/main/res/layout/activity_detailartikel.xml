@@ -216,7 +216,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nunitomedium"
                     android:paddingLeft="10dp"
-
                     android:text="Moderator oleh"
                     android:textColor="@color/text"
                     android:textSize="12sp"
@@ -265,17 +264,10 @@
                     android:textColor="@color/primary_300"
                     android:layout_margin="10dp"/>
 
-
-
             </LinearLayout>
 
-
-
-
-
-
-
         </LinearLayout>
+
     </ScrollView>
 
 </RelativeLayout>
