@@ -1,6 +1,8 @@
 package com.example.parentpal.adapter
 
+import android.content.ContentValues
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +11,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parentpal.ArtikelWebviewActivity
 import com.example.parentpal.R
-import com.example.parentpal.activity.ArticleActivity
 import com.example.parentpal.model.Article
+import com.example.parentpal.tabBelajar.BacaanFragment
+import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 import java.util.Locale
 
 class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adapter<ArticleListAdapter.ArticleViewHolder>() {
@@ -30,31 +36,52 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
 
     override fun getItemCount(): Int {
         return filteredArticleList.size
+        //return article.size
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
+        //val artikel = article[position]
         val artikel = filteredArticleList[position]
 
-        holder.imArticle.setImageResource(artikel.imgArticle)
-        holder.tvTitleArticle.text = (artikel.titleArticle)
-        holder.tvDateArticle.text = (artikel.dateArticle)
-        holder.tvCategoryArticle.text = (artikel.categoryArticle)
+        Picasso.get().load(artikel.thumbnail).into(holder.imArticle)
+        //holder.imArticle.setImageResource(artikel.thumbnail)
+        holder.tvTitleArticle.text = (artikel.judul)
+        holder.tvDateArticle.text = (artikel.tanggal)
+        holder.tvCategoryArticle.text = (artikel.Kategori)
 
         holder.imArticle.setOnClickListener {
-            val intent= Intent(holder.itemView.context, ArtikelWebviewActivity::class.java)
+            val intent = Intent(holder.itemView.context, ArtikelWebviewActivity::class.java)
+            intent.putExtra("article_url", artikel.judul)
             holder.itemView.context.startActivity(intent)
         }
+
     }
 
-    fun filterArticle(query: String){
-        val lowerCaseQuery = query.toLowerCase(Locale.getDefault())
+    fun filterArticle(query: String) {
+        val lowerCaseQuery = query.lowercase(Locale.getDefault())
         filteredArticleList.clear()
-        if (lowerCaseQuery.isEmpty()){
-            filteredArticleList.addAll(article)
+
+        if (lowerCaseQuery.isEmpty()) {
+            //filteredArticleList.addAll(article)
+            //fetchArticles()
+            val db = Firebase.firestore
+            db.collection("artikel")
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val article = document.toObject(Article::class.java)
+                        //listArticle.add(article)
+                        filteredArticleList.add(article)
+                    }
+                    notifyDataSetChanged()
+                }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
+                }
         } else {
-            for (artikel in article){
-                if (artikel.titleArticle.toLowerCase(Locale.getDefault()).contains(lowerCaseQuery) ||
-                    artikel.categoryArticle.toLowerCase(Locale.getDefault()).contains(lowerCaseQuery)
+            for (artikel in article) {
+                if (artikel.judul?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true ||
+                    artikel.Kategori?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true
                 ) {
                     filteredArticleList.add(artikel)
                 }
@@ -62,5 +89,7 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
         }
         notifyDataSetChanged()
     }
+
+
 
 }

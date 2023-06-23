@@ -1,7 +1,8 @@
 package com.example.parentpal.navfragment
 
-import android.content.Intent
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,12 +36,11 @@ import com.example.parentpal.model.Category
 import com.example.parentpal.model.Question
 import com.example.parentpal.tabBelajar.BacaanFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.firestore.Source
+import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 
 class BerandaFragment : Fragment() {
 
-    // TODO: Rename and change types of parameters
     private lateinit var rv_kategori: RecyclerView
     private var list = ArrayList<Category>()
     private lateinit var rv_artikel: RecyclerView
@@ -58,6 +58,8 @@ class BerandaFragment : Fragment() {
     private lateinit var imageSlider : ImageSlider
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+    private lateinit var adapterArtikel: ArticleListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,14 +77,15 @@ class BerandaFragment : Fragment() {
 
         rv_kategori = requireView().findViewById(R.id.rv_kategori)
         rv_kategori.setHasFixedSize(true)
+        adapterArtikel = ArticleListAdapter(listArtikel)
 
         list.addAll(listCategory)
         showRecyclerView()
 
         rv_artikel = requireView().findViewById(R.id.rv_artikel)
         rv_artikel.setHasFixedSize(true)
-
-        listArtikel.addAll(listArticle)
+        //listArtikel.addAll(listArticle)
+        //listArtikel = arrayListOf()
         showRvArticle()
 
         rv_tanya = requireView().findViewById(R.id.rv_tanya)
@@ -160,7 +163,7 @@ class BerandaFragment : Fragment() {
     }
 
     //article
-    private val listArticle: ArrayList<Article>
+    /*private val listArticle: ArrayList<Article>
         get() {
             val articleImg = resources.obtainTypedArray(R.array.article_img)
             val articleTitle = resources.getStringArray(R.array.article_title)
@@ -177,11 +180,30 @@ class BerandaFragment : Fragment() {
                 dataArticle.add(article)
             }
             return dataArticle
-        }
+        }*/
 
-    private fun showRvArticle(){
+    private fun showRvArticle() {
+        adapterArtikel = ArticleListAdapter(listArtikel)
         rv_artikel.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rv_artikel.adapter = ArticleListAdapter(listArtikel)
+        rv_artikel.adapter = adapterArtikel
+        fetchArticles()
+        adapterArtikel.filterArticle("")
+    }
+
+    private fun fetchArticles() {
+        val db = Firebase.firestore
+        db.collection("artikel")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document: QueryDocumentSnapshot in result) {
+                    val article = document.toObject(Article::class.java)
+                    listArtikel.add(article)
+                }
+                adapterArtikel.notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
+            }
     }
 
     //question

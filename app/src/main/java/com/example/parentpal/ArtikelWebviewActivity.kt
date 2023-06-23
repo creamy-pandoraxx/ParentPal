@@ -24,7 +24,7 @@ class ArtikelWebviewActivity : AppCompatActivity() {
         webView.webViewClient = WebViewClient()
 
         // Dapatkan data konten HTML dari Firestore
-        val artikelId = "tururuurfd" // Ganti dengan ID artikel yang ingin ditampilkan
+        val artikelId = intent.getStringExtra("article_url").toString() // Ganti dengan ID artikel yang ingin ditampilkan
         val db = FirebaseFirestore.getInstance()
         val artikelRef = db.collection("artikel").document(artikelId)
 
