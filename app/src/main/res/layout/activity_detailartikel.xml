@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detailartikel"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/back" />
+
+            <ImageView
+                android:id="@+id/share"
+                android:paddingLeft="160dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/share" />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/judul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:fontFamily="@font/nunitobold"
+                    android:text="BINAPAL: Menjadi Orang Tua Cerdas dan Bijaksana di Era Digital"
+                    android:textColor="@color/text"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="20dp"
+                    android:src="@drawable/poster" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:layout_marginLeft="20dp">
+
+                <ImageView
+                    android:id="@+id/kalender"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/kalender" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_regular"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="70dp"
+                    android:text="10 Juni 2023"
+                    android:textColor="@color/text_200"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/time"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/time" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_regular"
+                    android:paddingLeft="10dp"
+                    android:text="19.00 - 20.00 WIB"
+                    android:textColor="@color/text_200"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/lokasi"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/lokasi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_regular"
+                    android:paddingLeft="10dp"
+                    android:text="Media Konferensi Virtual: Zoom Meeting (Daring / Online)"
+                    android:textColor="@color/text_200"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp">
+
+                <ImageView
+                    android:id="@+id/profil"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/profilpembicara" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunitomedium"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="70dp"
+                        android:text="Pembicara oleh dr. Psyc Maryam Inaya"
+                        android:textColor="@color/primary_200"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_regular"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="70dp"
+                        android:text="- Psikolog Anak"
+                        android:textColor="@color/text_200"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_regular"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="70dp"
+                        android:text="- Pemilik Rumah Kasih “Peduli Anak”"
+                        android:textColor="@color/text_200"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_regular"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="70dp"
+                        android:text="- Penulis Buku “Dunia Anak”"
+                        android:textColor="@color/text_200"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logoparentpal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitomedium"
+                    android:paddingLeft="10dp"
+
+                    android:text="Moderator oleh"
+                    android:textColor="@color/text"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunitomedium"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="70dp"
+                    android:text="Tim ParentPal"
+                    android:textColor="@color/primary"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
