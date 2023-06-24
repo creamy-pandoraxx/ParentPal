@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kebijakandanprivasi">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/judul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Kebijakan & Privasi Pengguna Aplikasi ParentPal"
+                android:textSize="16sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunitobold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Perbaruan terakhir: 24/05/2023"
+                android:textSize="10sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Harap baca dokumen ini dengan seksama sebelum menggunakan aplikasi ini. Adalah kewajiban Anda untuk membaca KEBIJAKAN PRIVASI ini terlebih dulu sebelum mengambil tindakan apa pun di aplikasi ini. Anda dapat memberitahu kami bila tidak ingin memberikan informasi tentang diri Anda kepada pihak ketiga sesuai dengan ketentuan di bawah. PARENTPAL (bersama dengan seluruh perusahaan media dan asosiasi yang berada di dalam naungannya) dalam hal ini akan disebut sebagai PENGELOLA."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Prinsip-prinsip dasar"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Dengan mengakses dan menggunakan aplikasi ini Anda dianggap menyetujui batasan-batasan hukum yang diatur dalam Ketentuan Penggunaan dan Kebijakan Privasi ini. Oleh karena itu, Anda diharapkan juga membaca Ketentuan Penggunaan sebelum menggunakan aplikasi ini."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="PENGELOLA berkomitmen untuk melindungi privasi Anda. Penting bagi kami untuk memastikan Anda dapat menggunakan aplikasi ini dan menikmatinya tanpa harus mengalami pelanggaran atas privasi Anda."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Namun demikian, memahami pengguna aplikasi kami, merupakan hal yang penting agar kami dapat meningkatkan layanan kami secara terus-menerus. Kami perlu membangun gambaran yang akurat tentang kebutuhan dan harapan para pengguna kami. Dan tentunya hal itu hanya dapat dilakukan dengan membangun komunikasi dengan Anda terlebih dahulu. Pemahaman kami terhadap diri Anda akan membuat kami dapat menawarkan layanan yang relevan dan interaktif sebagaimana yang diharapkan oleh pengguna aplikasi kami. Itu juga membantu kami untuk memberikan akses atas informasi terbaik kepada pengguna bebas aplikasi ini."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Informasi apa yang PENGELOLA minta dari Anda?"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Secara otomatis kami mengumpulkan beberapa data tentang pola Anda menggunakan internet. Ini adalah data agregat dan tidak menunjuk pada diri Anda secara personal. Kami mungkin juga akan meminta Anda untuk memberikan informasi personal secara sukarela untuk tujuan mendapatkan gambaran yang tepat tentang pengguna aplikasi kami. Artinya, Anda dapat dengan bebas menentukan apakah Anda akan dengan sukarela bersedia memberikan informasi ini atau tidak."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Bila Anda mengikuti sebuah kompetisi yang kami adakan, promosi dan tawaran-tawaran lain, Anda akan diminta untuk memberikan beberapa detail tambahan tentang diri Anda. Anda juga bisa memilih untuk memberikan informasi tersebut melalui email atau cara lain yang Anda pilih. Jika Anda melakukan transaksi atau pembelian barang dengan Perusahaan lain di bawah naungan ParentPal, mereka juga akan meminta beberapa informasi tertentu. Informasi ini mungkin akan dibagi dengan kami."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Bagaimana kami mengumpulkan cookie pada aplikasi dan informasi apa yang kami kumpulkan?"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Informasi dan Data Pribadi Pendaftaran di aplikasi kami"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Setiap orang dapat mengakses aplikasi kami. Tetapi akses dalam lingkup yang luas terhadap informasi dalam aplikasi kami hanya bisa didapat bila telah mendaftarkan diri secara gratis. Anda akan diminta untuk memberikan beberapa informasi pribadi Anda, termasuk alamat email dan informasi demografi seperti jenis kelamin, usia, kode pos, pendapatan (bersifat opsional), pekerjaan, dan sebagainya, pada saat mendaftar. Dengan mengakses Parenting.co.id, Anda dianggap menyetujui ketentuan untuk menjadi anggota di aplikasi kami."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Layanan dan Produk Tertentu"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Sebagian besar isi aplikasi kami dapat Anda akses dengan gratis. Namun demikian, beberapa produk dan layanan tertentu mungkin hanya dapat Anda akses dengan membayar. Bila Anda ingin membayar untuk akses terhadap produk dan layanan seperti itu, kami akan meminta dan menyimpan data kartu kredit atau debet Anda. Kami akan menjaga kerahasiaan informasi ini sepenuhnya dan hanya akan kami bagi dengan pihak bank penerbit kartu kredit atau debet Anda, yang perannya kami perlukan untuk menyelesaikan proses transaksi ini."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Kontes dan Penawaran Istimewa"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Di kesempatan tertentu, PENGELOLA akan mengumpulkan informasi pribadi dari pembaca dalam rangka penyelenggaraan kontes atau penawaran khusus. Informasi ini juga kemungkinan besar akan kami bagi dengan pihak ketiga yang bekerjasama dengan kami dalam penyelenggaraan kontes atau penawaran istimewa tersebut. Jika Anda tidak ingin informasi Anda dibagi dengan pihak ketiga, Anda bisa memilih untuk tidak berpartisipasi dalam kontes atau penawaran khusus tersebut."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Survei pembaca, panel pembaca, dan riset pasar"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Pengelola mungkin akan mengumpulkan data pribadi dari pembaca saat melakukan survei. Data mungkin dikumpulkan melalui aplikasi kami, telepon atau melalui email. Informasi yang Anda berikan untuk pertanyaan-pertanyaan survei yang membutuhkan jawaban opsional mungkin kami akan bagi dengan pihak ketiga (pengiklan atau rekanan kami lainnya) dalam bentuk data agregat."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Beberapa pembaca kami mungkin juga akan kami undang untuk menjadi anggota panel pembaca Parenting. Jika Anda mendapatkan undangan tersebut dan bersedia menjadi anggota panel pembaca, Anda akan diminta untuk memberi informasi tertentu, misalnya keuangan pribadi atau rumahtangga dan perilaku belanja Anda. Pembaca biasanya dihubungi melalui email, dengan tautan ke halaman online survei kami. Seluruh data survey dilaporkan dan/atau digunakan hanya dalam bentuk data agregat, informasi pribadi sama sekali tidak akan dikeluarkan. Sebagai anggota panel, kami hanya akan meminta Anda untuk memberikan alamat email Anda. Nama, alamat rumah, dan nomor telepon bersifat opsional."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Layanan SMS"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Pengelola mungkin akan mengembangkan juga layanan SMS di masa depan. Kami kemungkinan juga akan menggunakan informasi yang kami kumpulkan dari interaksi Anda dengan majalah dalam group kami untuk pengembangan layanan tersebut."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Teknologi Analitis"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Kami menggunakan aplikasi pihak ketiga untuk melacak dan menganalisa data penggunaan atas aplikasi kami. Data tersebut bersifat non-personal. Kegunaannya adalah untuk mengidentifikasi penggunaan dan mengukur statistik informasi dari pengunjung dan pembaca aplikasi. Seluruh data dikumpulkan oleh pihak ketiga yang menjadi rekanan kami tersebut, namun kepemilikan data dan hak untuk menggunakannya ada pada kami. Kami mungkin akan mempublikasikan data agregat yang bersifat non-personal dan kesimpulan informasi secara umum mengenai pengunjung aplikasi kami untuk keperluan promosi dan sebagai representasi pembaca kami kepada pengiklan. Harap dicatat bahwa data yang kami presentasikan adalah data yang bersifat non-personal, hanya kesimpulan umum dari aktivitas para pengunjung dan pembaca kami"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Alamat internet protocol (IP)"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Pengelola mencatat alamat internet protocol, atau lokasi komputer Anda di internet, untuk tujuan administrasi sistem. Kami menggunakan informasi ini sebagai cara agregat untuk melacak akses terhadap aplikasi kami."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Arsip log (log file)"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Kami menggunakan data arsip log secara agregat untuk menganalisa penggunaan terhadap aplikasi kami. Jika Anda mengunduh dan menginstal aplikasi tertentu yang disediakan oleh aplikasi kami, arsip log akan dikumpulkan oleh aplikasi tersebut dan dikirimkan ke server kami saat komputer Anda melakukan sinkronisasi berita terbaru."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Penggunaan cookie pada aplikasi"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Cookie adalah bagian data yang disimpan dalam file cookie pada browser di komputer pengguna sehingga aplikasi dapat mengingat Anda. Cookie biasanya mengandung nama domain dari mana cookie berasal, panjang sesi Anda berinteraksi dengan aplikasi kami, dan nilai yang biasanya berbentuk angka yang ditentukan secara acak. Cookie dapat membantu aplikasi untuk mengatur konten yang sesuai dengan minat dan perhatian Anda dengan cepat. Semua aplikasi pada umumnya menggunakan cookie. Kami tidak menggunakan cookie untuk mengumpulkan informasi pribadi Anda yang tidak ingin Anda ungkapkan."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Ada dua jenis cookie digunakan pada aplikasi kami:"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="1. SESSION COOKIES, merupakan cookie temporer yang akan ada di file cookie selama Anda mengakses aplikasi kami. Cookie ini akan terhapus dengan otomotasi begitu Anda keluar dari aplikasi."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="2. PERSISTENT COOKIES, merupakan jenis cookie yang akan tetap tersimpan dalam browser Anda meskipun Anda sudah keluar dari aplikasi kami (panjang waktu cookie ini tetap tersimpan tergantung pada usia spesifik masing-masing cookie)."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="SESSION COOKIES: Anda bisa menggunakan cookie ini untuk mengingat password yang Anda gunakan untuk mengakses aplikasi ini sehingga Anda bisa masuk secara otomatis ke dalam aplikasi kami."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="PERSISTENT COOKIES: Cookie ini berguna bagi kami untuk mengenali Anda sebagai pengguna unik (unique visitor) saat Anda kembali mengunjungi aplikasi kami dan juga membantu kami untuk menyusun konten, iklan dan presentasi yang sesuai dengan kebutuhan Anda di dalam aplikasi kami. Selain itu, persistent cookie juga membantu kami untuk mengumpulkan statistik agregat yang sifatnya anonim sehingga kami dapat memahami bagaimana cara pengguna kami memanfaatkan aplikasi ini. Dengan demikian dapat membantu kami memperbaiki struktur aplikasi ini. Kami tetap tidak dapat mengidentifikasikan Anda secara personal dengan cara ini."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Cookie pihak ketiga"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Pihak ketiga juga menggunakan cookie dalam aplikasi kami. Cookie-cookie ini digunakan untuk tujuan berikut:"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
