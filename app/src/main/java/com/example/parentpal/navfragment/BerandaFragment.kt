@@ -1,6 +1,7 @@
 package com.example.parentpal.navfragment
 
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.children
 import androidx.core.view.get
@@ -20,6 +22,8 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.parentpal.R
 import com.example.parentpal.adapter.ArticleHomeAdapter
+import com.example.parentpal.activity.BinaActivity
+import com.example.parentpal.activity.FaseActivity
 import com.example.parentpal.adapter.ArticleListAdapter
 import com.example.parentpal.adapter.CategoryListAdapter
 import com.example.parentpal.adapter.QuestListAdapter
@@ -32,6 +36,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.example.parentpal.model.Category
 import com.example.parentpal.model.Question
+import com.example.parentpal.tabBelajar.BacaanFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
@@ -45,6 +50,10 @@ class BerandaFragment : Fragment() {
     private lateinit var rv_tanya: RecyclerView
     private var listTanya = ArrayList<Question>()
     private lateinit var questAdapter: QuestListAdapter
+    private lateinit var icFase : ImageView
+    private lateinit var icEduka : ImageView
+    private lateinit var icAhli : ImageView
+    private lateinit var icBina: ImageView
 
     private lateinit var nextQuest : TextView
     private var _binding:FragmentBerandaBinding?= null
@@ -63,6 +72,12 @@ class BerandaFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        icFase = requireView().findViewById(R.id.icFase)
+        icFase.setOnClickListener {
+            val goFase = Intent(requireContext(),FaseActivity::class.java)
+            startActivity(goFase)
+        }
+
         rv_kategori = requireView().findViewById(R.id.rv_kategori)
         rv_kategori.setHasFixedSize(true)
         list.addAll(listCategory)
@@ -95,6 +110,39 @@ class BerandaFragment : Fragment() {
             bottomNavigationView.selectedItemId = R.id.item_3
         }
 
+        icEduka = requireView().findViewById(R.id.icEduka)
+
+        icEduka.setOnClickListener {
+            val fragmentBelajar = BelajarFragment()
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.layout_frame, fragmentBelajar)
+                .addToBackStack(null)
+                .commit()
+
+            val goBelajar : BottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation)
+            goBelajar.selectedItemId = R.id.item_2
+        }
+
+        icAhli = requireView().findViewById(R.id.icAhli)
+
+        icAhli.setOnClickListener {
+            val fragmentTanya = TanyaAhliFragment()
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.layout_frame, fragmentTanya)
+                .addToBackStack(null)
+                .commit()
+
+            val goTanya : BottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation)
+            goTanya.selectedItemId = R.id.item_3
+        }
+
+        icBina = requireView().findViewById(R.id.icBina)
+        icBina.setOnClickListener {
+            val goBina = Intent(requireContext(),BinaActivity::class.java)
+            startActivity(goBina)
+        }
 
     }
 
@@ -103,7 +151,7 @@ class BerandaFragment : Fragment() {
         get() {
             val dataName = resources.getStringArray(R.array.data_name)
             val dataList = ArrayList<Category>()
-            for (i in 7..13){
+            for (i in 2..13){
                 val category = Category(dataName[i])
                 dataList.add(category)
             }

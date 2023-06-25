@@ -230,7 +230,7 @@ class BacaanFragment : Fragment() {
         get() {
             val nameCategory = resources.getStringArray(R.array.data_name)
             val dataCategory = ArrayList<Category>()
-            for (i in 1..13) {
+            for (i in 2..13) {
                 val category = Category(nameCategory[i])
                 dataCategory.add(category)
             }
