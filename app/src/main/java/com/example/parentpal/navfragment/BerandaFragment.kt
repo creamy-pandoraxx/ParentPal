@@ -19,6 +19,7 @@ import com.denzcoskun.imageslider.constants.AnimationTypes
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.parentpal.R
+import com.example.parentpal.adapter.ArticleHomeAdapter
 import com.example.parentpal.adapter.ArticleListAdapter
 import com.example.parentpal.adapter.CategoryListAdapter
 import com.example.parentpal.adapter.QuestListAdapter
@@ -51,7 +52,8 @@ class BerandaFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-    private lateinit var adapterArtikel: ArticleListAdapter
+    private lateinit var adapterArtikel: ArticleHomeAdapter
+    private lateinit var categoryAdapter: CategoryListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,11 +65,10 @@ class BerandaFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         rv_kategori = requireView().findViewById(R.id.rv_kategori)
         rv_kategori.setHasFixedSize(true)
-        adapterArtikel = ArticleListAdapter(listArtikel)
-
         list.addAll(listCategory)
         showRecyclerView()
 
+        adapterArtikel = ArticleHomeAdapter(listArtikel)
         rv_artikel = requireView().findViewById(R.id.rv_artikel)
         rv_artikel.setHasFixedSize(true)
         //listArtikel.addAll(listArticle)
@@ -93,6 +94,8 @@ class BerandaFragment : Fragment() {
             val bottomNavigationView : BottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation)
             bottomNavigationView.selectedItemId = R.id.item_3
         }
+
+
     }
 
     //category
@@ -109,8 +112,12 @@ class BerandaFragment : Fragment() {
 
     private fun showRecyclerView(){
         rv_kategori.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
-        rv_kategori.adapter = CategoryListAdapter(list)
-
+        categoryAdapter = CategoryListAdapter(list)
+        rv_kategori.adapter = categoryAdapter
+        categoryAdapter.setOnCategorySelectedListener { categoryName ->
+            // Dapatkan artikel berdasarkan kategori yang dipilih
+            fetchArticles(categoryName)
+        }
     }
 
     //article
@@ -134,14 +141,27 @@ class BerandaFragment : Fragment() {
         }*/
 
     private fun showRvArticle() {
-        adapterArtikel = ArticleListAdapter(listArtikel)
+        adapterArtikel = ArticleHomeAdapter(listArtikel)
         rv_artikel.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rv_artikel.adapter = adapterArtikel
         fetchArticles()
-        adapterArtikel.filterArticle("")
     }
 
-    private fun fetchArticles() {
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // ...
+
+        rv_kategori = requireView().findViewById(R.id.rv_kategori)
+        rv_kategori.setHasFixedSize(true)
+        list.addAll(listCategory)
+        showRecyclerView()
+
+        categoryAdapter = CategoryListAdapter(list)
+        rv_kategori.adapter = categoryAdapter
+    }*/
+
+    /*private fun fetchArticles() {
         val db = Firebase.firestore
         db.collection("artikel")
             .get()
@@ -155,7 +175,42 @@ class BerandaFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
             }
+    }*/
+    private fun fetchArticles(category: String? = null) {
+        val db = Firebase.firestore
+        listArtikel.clear() // Clear list sebelum mengambil artikel baru
+
+        var collectionRef = db.collection("artikel")
+        if (category != null) {
+           collectionRef
+                .whereEqualTo("Kategori", category)
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val article = document.toObject(Article::class.java)
+                        listArtikel.add(article)
+                    }
+                    adapterArtikel.notifyDataSetChanged()
+                }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
+                }
+        }else {
+            collectionRef.get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val article = document.toObject(Article::class.java)
+                        listArtikel.add(article)
+                    }
+                    adapterArtikel.notifyDataSetChanged()
+                }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
+                }
+        }
+
     }
+
 
     //question
     private val listQuest: ArrayList<Question>

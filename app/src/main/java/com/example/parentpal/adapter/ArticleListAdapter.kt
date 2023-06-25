@@ -65,7 +65,7 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
         if (lowerCaseQuery.isEmpty()) {
             //filteredArticleList.addAll(article)
             //fetchArticles()
-            val db = Firebase.firestore
+           val db = Firebase.firestore
             db.collection("artikel")
                 .get()
                 .addOnSuccessListener { result ->

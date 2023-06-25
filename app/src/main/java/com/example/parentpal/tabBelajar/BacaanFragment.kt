@@ -1,5 +1,6 @@
 package com.example.parentpal.tabBelajar
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -38,6 +39,7 @@ class BacaanFragment : Fragment() {
     private lateinit var svBacaan: SearchView
     private lateinit var adapterArticle: ArticleListAdapter
     private lateinit var adapterArticleVer: ArticleVerticalAdapter
+    private lateinit var categoryAdapter: CategoryListAdapter
     private lateinit var db: FirebaseFirestore
 
     override fun onCreateView(
@@ -140,7 +142,6 @@ class BacaanFragment : Fragment() {
 
     private fun showRvArticle() {
         adapterArticle = ArticleListAdapter(listArticle)
-
         rvArtikel.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rvArtikel.adapter = adapterArticle
         fetchArticles()
@@ -192,20 +193,38 @@ class BacaanFragment : Fragment() {
         adapterArticleVer.filterArticleVertical("")
     }
 
-    private fun fetchArticlesVer() {
+    private fun fetchArticlesVer(category: String? = null) {
         val db = Firebase.firestore
-        db.collection("artikel")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document: QueryDocumentSnapshot in result) {
-                    val article = document.toObject(Article::class.java)
-                    listArticleVertical.add(article)
+        listArticleVertical.clear() // Clear list sebelum mengambil artikel baru
+
+        var collectionRef = db.collection("artikel")
+        if (category != null) {
+            collectionRef
+                .whereEqualTo("Kategori", category)
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val article = document.toObject(Article::class.java)
+                        listArticleVertical.add(article)
+                    }
+                    adapterArticleVer.notifyDataSetChanged()
                 }
-                adapterArticleVer.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                Log.e(TAG, "Error getting articles: ${exception.message}")
-            }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
+                }
+        }else {
+            collectionRef.get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val article = document.toObject(Article::class.java)
+                        listArticleVertical.add(article)
+                    }
+                    adapterArticleVer.notifyDataSetChanged()
+                }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
+                }
+        }
     }
 
     //rvKategori
@@ -213,7 +232,7 @@ class BacaanFragment : Fragment() {
         get() {
             val nameCategory = resources.getStringArray(R.array.data_name)
             val dataCategory = ArrayList<Category>()
-            for (i in 1..6) {
+            for (i in 1..13) {
                 val category = Category(nameCategory[i])
                 dataCategory.add(category)
             }
@@ -223,7 +242,13 @@ class BacaanFragment : Fragment() {
     private fun showRvCategory() {
         rvKategori.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rvKategori.adapter = CategoryListAdapter(listCategory)
+        categoryAdapter = CategoryListAdapter(listCategory)
+        rvKategori.adapter = categoryAdapter
+        categoryAdapter.setOnCategorySelectedListener { categoryName ->
+            // Dapatkan artikel berdasarkan kategori yang dipilih
+            fetchArticlesVer(categoryName)
+            adapterArticleVer.filterArticleVertical(categoryName.orEmpty())
+        }
     }
     }
 
