@@ -418,6 +418,374 @@
                 android:textColor="@color/text"
                 android:fontFamily="@font/nunito_regular" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="- Untuk menggunakan iklan pada iklan di aplikasi dan melacak apakah iklan-iklan tersebut diklik oleh pengguna."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="- Untuk mengatur seberapa sering iklan tertentu diperlihatkan kepada Anda."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="- Untuk menghitung jumlah pengguna anonim yang mengunjungi aplikasi."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="- Untuk memberikan keamanan pada Anda saat melakukan transaksi."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="- Menghidupkan/mematikan cookie"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="- Anda dapat menerima atau menolak cookie dengan memodifikasi pengaturan pada browser Anda. Namun demikian, bila Anda melakukan itu, kemungkinan besar Anda tidak akan dapat menggunakan semua fitur interaktif dalam aplikasi ini."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Transfer data pribadi ke dunia internasional"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Seperti Anda ketahui, internet tidak mengenal batas-batas Negara. Layanan di internet bisa diakses secara global. Demikian juga dengan pengumpulan dan transmisi data personal tidak dapat dibatasi hanya di satu negera. Anda harus menyadari hal ini ketika mengakses aplikasi kami maupun aplikasi rekanan kami atau aplikasi lain yang ada tautannya pada aplikasi kami. Data pribadi Anda mungkin diproses di dalam atau ditransfer ke negara lain, misalnya Amerika. Dengan mengakses aplikasi kami, Anda dianggap menyetujui data pribadi Anda ditransfer atau diproses dengan cara demikian."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Untuk tujuan apa PENGELOLA mengumpulkan dan menggunakan informasi dari Anda?"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Kami menggunakan detil agregat pengunjung aplikasi kami (pengguna diidentifikasikan secara anonim) untuk membantu meningkatkan pemahaman kami tentang pengguna aplikasi dan preferensi mereka. Kami menggunakannya untuk membantu menempatkan iklan, peluang komersil, dan kompetisi yang relevan bagi pengguna aplikasi kami. Informasi itu juga dapat membantu kami memastikan peliputan editorial terbaik untuk Anda, selain membantu kami mengembangkan aplikasi ini dan mengaudit penggunaannya."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Informasi tentang Anda sebagai pribadi atau individu, termasuk detil kontak, mungkin akan digunakan untuk keperluan berikut ini:"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="- untuk melakukan riset pasar dan survei lainnya."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="- untuk melihat dan menggambarkan minat Anda terhadap materi editorial tertentu maupun peluang komersil yang Anda minati."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="- dibagi dengan pengiklan, rekan dagang, dan entitas bisnis lainnya yang bekerjasama dengan kami. Kami juga mungkin dapat berbagi informasi dengan mereka tentang data pelanggan mereka, yang mungkin juga termasuk Anda di dalamnya."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Informasi tentang Anda sebagai pribadi atau individu, termasuk detil kontak, mungkin akan digunakan untuk keperluan berikut ini:"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="- dibagi dengan pengiklan, rekan dagang, dan entitas bisnis lainnya yang bekerjasama dengan kami. Kami juga mungkin dapat berbagi informasi dengan mereka tentang data pelanggan mereka, yang mungkin juga termasuk Anda di dalamnya."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Analisa Statistik"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Pengelola akan menerapkan analisa statistik mengenai pasar dan demografis pembaca, dan pola langganan maupun belanja mereka, untuk tujuan pengembangan produk dan secara umum untuk memberikan informasi kepada pengiklan tentang karakter pelanggan kami. Kami juga menggunakan informasi tersebut agar iklan bisa lebih tepat target, secara agregat, dan lebih sesuai dengan dengan pembaca. Pengelola juga akan membagi informasi pribadi Anda dengan media-media lain di bawah naungan ParentPal untuk keperluan analisa, termasuk analisa untuk pengembangan hubungan dengan pelanggan."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Produk dan layanan dari Pengelola"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Dari waktu ke waktu, kami akan memberikan informasi secara teratur kepada para pembaca kami mengenai tawaran dan produk dari Parenting, termasuk layanan berlangganan spesial dan produk serta layanan premium lainnya. Informasi ini hanya akan dibagi di lingkungan internal ParentPal."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Iklan banner"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Kami menggunakan informasi demografi dan preferensi agar iklan-iklan di aplikasi kami sesuai target, secara agregat, sampai pada pengguna yang memang membutuhkannya. Ini artinya, Anda bisa melihat iklan-iklan yang pada saat tertentu mungkin menjadi kebutuhan Anda di aplikasi kami. Kami hanya akan memberikan informasi pribadi Anda kepada pihak ketiga dalam bentuk data agregat atau non-personal."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="User Generated Content (termasuk komentar, review, artikel blog, dan sebagainya)"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Kami menawarkan kepada Anda kesempatan untuk terlibat dalam aktivitas publik di Parenting.co.id, termasuk memberikan komentar, rekomendasi, review pembaca, dan memberikan peringkat. Setiap informasi yang Anda masukkan dalam kontribusi Anda, bersama dengan nama pengguna dan foto, akan tampil di publik dan mungkin akan digunakan oleh Parenting.co.id untuk keperluan aplikasi kami maupun untuk keperluan promosi atau komersial."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Jika Anda memilih untuk terlibat dalam aktivitas publik di situs kami, Anda harus sadar bahwa informasi pribadi yang Anda masukkan akan dapat dibaca, dikumpulkan, atau digunakan oleh pengguna lain di area tersebut, dan ada kemungkinan Anda akan dikirimi informasi yang tidak Anda minta atau inginkan. Kami tidak bertanggungjawab atas informasi pribadi yang Anda masukkan ke dalam forum-forum tersebut. Untuk keterangan lebih lanjut, baca Tata Cara Posting dan Penggunaan Forum yang telah kami sediakan."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Jika Anda telah terdaftar di Parenting.co.id, kami akan melacak dan memonitor aktivitas publik Anda di Parenting.co.id. “Aktivitas publik” adalah setiap tindakan yang anda lakukan di parentpal.com yang dirancang untuk terlihat oleh pengguna lain, termasuk komentar, rekomendasi, review, pemberian peringkat, dan sebagainya. Saat Anda melakukan aktivitas tertentu di forum publik parentpal.com, Anda memilih untuk menampilkan aktivitas publik Anda ke anggota atau pengguna yang lain. Juga, bila aktivitas di aplikasi kami dishare ke situs sosial lain, mungkin melalui RSS feed, API’s, dan lain-lain, kemungkinan besar aktivitas publik Anda di Parenting.co.id akan terbawa ke situs sosial lain tersebut atau melalui format yang lain. Artinya, aktivitas publik Anda di parentpal.com mungkin akan muncul di aplikasi lain, atau blog, atau feed. Oleh karena itu kami meminta agar Anda sangat berhati-hati dalam menampilkan informasi pribadi Anda kepada publik. Kami tidak bertanggungjawab atas tersebarnya informasi pribadi yang Anda masukkan melalui aktivitas publik Anda di aplikasi kami."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Demi kepentingan Anda, kami menyarankan untuk membaca dan mempelajari Tata Cara Posting dan Penggunaan Forum untuk mengetahui perubahan-perubahan yang akan kami buat secara berkala."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="E-Mail Newsletters"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Parenting.co.id menawarkan sejumlah email newsletter. Jika Anda mendaftarkan diri untuk berlangganan newsletter di dalam aplikasi kami, secara periodik Anda akan mendapatkan email berisi tautan newsletter tersebut di mailbox Anda. Jika Anda secara spesifik tidak ingin lagi menerima salah satu newsletter dari kami, ikuti instruksi “unsubscribe” yang terletak di bagian bawah setiap newsletter. Untuk mengelola preferensi email di Parenting.co.id, klik di sini."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Butuh informasi lebih lanjut?"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Jika Anda membutuhkan informasi lebih lanjut, atau ingin menghubungi kami terkait dengan Kebijakan Privasi ini dan menyampaikan pendapat Anda tentang informasi personal Anda, silakan isi form kontak yang telah tersedia."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Informasi perusahaan dan perlindungan data"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Pengontrol atas data-data yang ada dalam aplikasi ini adalah Radio Parenting, yang bernaung di bawah ParentPal, dengan alamat kantor: 54P3+22H, Sambau, Kecamatan Nongsa, Kota Batam, Kepulauan Riau."
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:text="Kebijakan Privacy Parenting Apps"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingBottom="30dp"
+                android:text="© Copyright ParentPal 2023"
+                android:textSize="14sp"
+                android:textColor="@color/text"
+                android:fontFamily="@font/nunito_bold" />
+
 
 
 
