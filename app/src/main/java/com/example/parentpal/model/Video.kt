@@ -1,9 +1,9 @@
 package com.example.parentpal.model
 
 data class Video(
-    val imgVideo: Int,
-    val titleVideo: String,
-    val viewsVideo: String,
-    val dateVideo: String,
-    val categoryVid: String
+    val image: String ?=null,
+    val title: String ?= null,
+    val category: String ?= null,
+    val link: String ?= null,
+    val age: String ?= null
 )

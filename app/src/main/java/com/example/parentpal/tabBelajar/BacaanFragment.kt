@@ -3,26 +3,25 @@ package com.example.parentpal.tabBelajar
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.LinearLayout
 import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.parentpal.adapter.ArticleVerticalAdapter
 import com.example.parentpal.R
 import com.example.parentpal.adapter.ArticleListAdapter
+import com.example.parentpal.adapter.ArticleVerticalAdapter
 import com.example.parentpal.adapter.CategoryListAdapter
 import com.example.parentpal.model.Article
 import com.example.parentpal.model.Category
-import com.google.firebase.firestore.*
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -44,8 +43,7 @@ class BacaanFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        // Inflate the layout for this fragment
+         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bacaan, container, false)
     }
 
@@ -225,5 +223,5 @@ class BacaanFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rvKategori.adapter = CategoryListAdapter(listCategory)
     }
-    }
 
+}
