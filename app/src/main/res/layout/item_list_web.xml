@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/ivWeb"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/img_web1"/>
+
+    <TextView
+        android:id="@+id/tvTitleWeb"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/ivWeb"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:text="BinaPal: Menjadi Orang Tua Cerdas dan Bijaksana Di Era Digital"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/text"
+        android:textSize="14sp"
+        android:fontFamily="@font/nunito_bold"/>
+
+    <TextView
+        android:id="@+id/tvZoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/ivWeb"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleWeb"
+        android:text="Zoom"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="12sp"
+        android:textColor="@color/text_200"/>
+
+    <TextView
+        android:id="@+id/tvNameDoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/ivWeb"
+        app:layout_constraintTop_toBottomOf="@id/tvZoom"
+        android:text="dr. Psyc. Maryam Inaya"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="12sp"
+        android:textColor="@color/primary"/>
+
+    <TextView
+        android:id="@+id/tvDateWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_cal"
+        app:layout_constraintTop_toBottomOf="@id/ivWeb"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="10 Juni 2023"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="12sp"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:textColor="@color/text_200"/>
+
+    <TextView
+        android:id="@+id/tvTimeWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_time"
+        app:layout_constraintTop_toBottomOf="@id/ivWeb"
+        app:layout_constraintStart_toEndOf="@id/tvDateWeb"
+        android:text="19.00 - 20.00 WIB"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="12sp"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:textColor="@color/text_200"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

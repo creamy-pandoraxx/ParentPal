@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.parentpal.ArtikelWebviewActivity
 import com.example.parentpal.R
 import com.example.parentpal.model.Article
-import com.example.parentpal.tabBelajar.BacaanFragment
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
