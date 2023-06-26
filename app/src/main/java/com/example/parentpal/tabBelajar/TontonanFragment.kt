@@ -1,5 +1,6 @@
 package com.example.parentpal.tabBelajar
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -38,7 +39,10 @@ class TontonanFragment : Fragment() {
     private lateinit var svTontonan: SearchView
     private lateinit var adapterTontonan: VideoListAdapter
     private lateinit var adapterTontonanVer: VideoListVerAdapter
-    private var items: Array<String>? = null
+    private lateinit var kategoriAdapter: CategoryListAdapter
+    var titleQuery = ""
+    var categoryQuery = ""
+    var ageQuery = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +54,8 @@ class TontonanFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        items = resources.getStringArray(R.array.data_name)
+        val items = listOf("Semua Usia","0 – 6 tahun", "7 – 12 tahun","13 – 17 tahun")
+
 
         svTontonan = requireView().findViewById<SearchView>(R.id.sv_tontonan)
 
@@ -58,7 +63,6 @@ class TontonanFragment : Fragment() {
 
         rvVideo = requireView().findViewById(R.id.rvVideo)
         rvVideo.setHasFixedSize(true)
-//        listVideo.addAll(listVideoStudy)
         showRvVideo()
 
         rv_category = requireView().findViewById(R.id.rvCategory)
@@ -68,19 +72,17 @@ class TontonanFragment : Fragment() {
 
         rvVideoVer = requireView().findViewById(R.id.rvVideoVer)
         rvVideoVer.setHasFixedSize(true)
-//        listVideoVer.addAll(listVideoVertical)
         showRvVideoVer()
 
         //spinnerUmur
         spUsia = requireView().findViewById(R.id.sp_usia)
-        val itemUsia = resources.getStringArray(R.array.data_age)
+        val itemUsia = items
 
         val usiaAdapter = object :
             ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, itemUsia) {
-            override fun isEnabled(position: Int): Boolean {
-                return position != 0
-            }
-
+//            override fun isEnabled(position: Int): Boolean {
+//                return position != 0
+//            }
             override fun getDropDownView(
                 position: Int,
                 convertView: View?,
@@ -89,16 +91,18 @@ class TontonanFragment : Fragment() {
                 val view: TextView =
                     super.getDropDownView(position, convertView, parent) as TextView
                 if (position == 0) {
-                    val textUsia = ContextCompat.getColor(context, R.color.text_200)
-                    view.setTextColor(textUsia)
+//                    val textUsia = ContextCompat.getColor(context, R.color.text_200)
+//                    view.setTextColor(textUsia)
                 } else {
+                    val text = ContextCompat.getColor(requireContext(), R.color.text)
+                    (view as TextView).setTextColor(text)
                 }
                 return view
             }
         }
         usiaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spUsia.adapter = usiaAdapter
-        spUsia.setSelection(1)
+        spUsia.setSelection(0)
 
         spUsia.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -108,9 +112,18 @@ class TontonanFragment : Fragment() {
                 id: Long
             ) {
                 val value = parent!!.getItemAtPosition(position).toString()
-                if (value == items?.get(0)) {
-                    val text = ContextCompat.getColor(requireContext(), R.color.text_200)
-                    (view as TextView).setTextColor(text)
+                if (position > 0){
+                    ageQuery = position.toString()
+                    adapterTontonan.filterVideo(titleQuery=titleQuery, categoryQuery=categoryQuery, ageQuery=ageQuery)
+                    adapterTontonanVer.filterVideoVer(titleQueryVer=titleQuery, categoryQueryVer=categoryQuery, ageQueryVer=ageQuery)
+                }else{
+                    //nampilin semua item
+                    adapterTontonan.filterVideo()
+                    adapterTontonanVer.filterVideoVer()
+                }
+                if (value == items[0]) {
+//                    val text = ContextCompat.getColor(requireContext(), R.color.text_200)
+//                    (view as TextView).setTextColor(text)
                 } else {
                     val text = ContextCompat.getColor(requireContext(), R.color.text)
                     (view as TextView).setTextColor(text)
@@ -132,35 +145,16 @@ class TontonanFragment : Fragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 val query = newText.orEmpty()
-                adapterTontonan.filterVideo(query)
-                adapterTontonanVer.filterVideoVer(query)
+                titleQuery = query
+                categoryQuery = query
+
+                adapterTontonan.filterVideo(titleQuery = titleQuery, categoryQuery = categoryQuery, ageQuery=ageQuery)
+                adapterTontonanVer.filterVideoVer(titleQueryVer = titleQuery, categoryQueryVer = categoryQuery, ageQueryVer=ageQuery)
                 return true
             }
 
         })
     }
-
-    //rvVideo
-//    private val listVideoVertical: ArrayList<Video>
-//        get() {
-//            val videoImg = resources.obtainTypedArray(R.array.video_img)
-//            val videoTitle = resources.getStringArray(R.array.video_title)
-//            val videoViews = resources.getStringArray(R.array.video_views)
-//            val videoDate = resources.getStringArray(R.array.video_date)
-//            val videoCat = resources.getStringArray(R.array.video_cat)
-//            val dataVideo = ArrayList<Video>()
-//            for (i in videoTitle.indices){
-//                val video = Video(
-//                    videoImg.getResourceId(i, -1),
-//                    videoTitle[i],
-//                    videoViews[i],
-//                    videoDate[i],
-//                    videoCat[i],
-//                )
-//                dataVideo.add(video)
-//            }
-//            return dataVideo
-//        }
 
     private fun showRvVideoVer(){
         adapterTontonanVer = VideoListVerAdapter(listVideoVer)
@@ -170,43 +164,39 @@ class TontonanFragment : Fragment() {
         adapterTontonanVer.filterVideoVer("")
     }
 
-    private fun fetchVideosVer() {
+    private fun fetchVideosVer(category: String? = null) {
         val vid = Firebase.firestore
-        vid.collection("tontonan")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document: QueryDocumentSnapshot in result) {
-                    val watch = document.toObject(Video::class.java)
-                    listVideoVer.add(watch)
-                }
-                adapterTontonanVer.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                Log.e(TAG, "Error getting video: ${exception.message}")
-            }
-    }
+        listVideoVer.clear()
 
-    //rvVideoVer
-//    private val listVideoStudy: ArrayList<Video>
-//        get() {
-//            val videoImg = resources.obtainTypedArray(R.array.video_img)
-//            val videoTitle = resources.getStringArray(R.array.video_title)
-//            val videoViews = resources.getStringArray(R.array.video_views)
-//            val videoDate = resources.getStringArray(R.array.video_date)
-//            val videoCat = resources.getStringArray(R.array.video_cat)
-//            val dataVideo = ArrayList<Video>()
-//            for (i in videoTitle.indices){
-//                val video = Video(
-//                    videoImg.getResourceId(i, -1),
-//                    videoTitle[i],
-//                    videoViews[i],
-//                    videoDate[i],
-//                    videoCat[i],
-//                )
-//                dataVideo.add(video)
-//            }
-//            return dataVideo
-//        }
+        var collectionRef = vid.collection("tontonan")
+        if (category != null) {
+            collectionRef
+                .whereEqualTo("category", category)
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val videos = document.toObject(Video::class.java)
+                        listVideoVer.add(videos)
+                    }
+                    adapterTontonanVer.notifyDataSetChanged()
+                }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting videos: ${exception.message}")
+                }
+        }else {
+            collectionRef.get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val videos = document.toObject(Video::class.java)
+                        listVideoVer.add(videos)
+                    }
+                    adapterTontonanVer.notifyDataSetChanged()
+                }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting videos: ${exception.message}")
+                }
+        }
+    }
 
     private fun showRvVideo(){
         adapterTontonan = VideoListAdapter(listVideo)
@@ -232,12 +222,11 @@ class TontonanFragment : Fragment() {
             }
     }
 
-    //rvKategori
     private val listCat: ArrayList<Category>
         get() {
             val nameCategory = resources.getStringArray(R.array.data_name)
             val dataCategory = ArrayList<Category>()
-            for (i in 1..6){
+            for (i in 2..13){
                 val category = Category(nameCategory[i])
                 dataCategory.add(category)
             }
@@ -246,7 +235,13 @@ class TontonanFragment : Fragment() {
 
     private fun showRvCat(){
         rv_category.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rv_category.adapter = CategoryListAdapter(listKategori)
+        kategoriAdapter = CategoryListAdapter(listKategori)
+        rv_category.adapter = kategoriAdapter
+        kategoriAdapter.setOnCategorySelectedListener { kategoriName ->
+            adapterTontonanVer.filterVideoVer(categoryQueryVer  =kategoriName.toString())
+//            fetchVideosVer(kategoriName)
+//            adapterTontonanVer.filterVideoVer(kategoriName.orEmpty())
+        }
     }
 
 

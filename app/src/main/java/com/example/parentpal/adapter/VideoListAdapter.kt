@@ -21,14 +21,15 @@ import com.squareup.picasso.Picasso
 import java.util.Locale
 import java.util.regex.Pattern
 
-class VideoListAdapter(private val video: List<Video>) : RecyclerView.Adapter<VideoListAdapter.VideoViewHolder>() {
+class VideoListAdapter(private val video: List<Video>) :
+    RecyclerView.Adapter<VideoListAdapter.VideoViewHolder>() {
     private var filteredVideoList: ArrayList<Video> = ArrayList(video)
 
     init {
         filteredVideoList.addAll(video.take(3))
     }
 
-    class VideoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class VideoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imVideo: ImageView = itemView.findViewById(R.id.imgVideo)
         val tvTitleVideo: TextView = itemView.findViewById(R.id.tvTitleVideo)
         val tvCatVideo: TextView = itemView.findViewById(R.id.tvcategoryVideo)
@@ -37,7 +38,8 @@ class VideoListAdapter(private val video: List<Video>) : RecyclerView.Adapter<Vi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_video, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_list_video, parent, false)
         return VideoViewHolder(view)
     }
 
@@ -61,7 +63,6 @@ class VideoListAdapter(private val video: List<Video>) : RecyclerView.Adapter<Vi
 
                 Picasso.get().load(thumbnailUrl).into(holder.imVideo)
             } else {
-
             }
         }
 
@@ -78,9 +79,11 @@ class VideoListAdapter(private val video: List<Video>) : RecyclerView.Adapter<Vi
             holder.itemView.context.startActivity(intent)
         }
     }
+
     private fun getYouTubeVideoId(url: String): String {
         url?.let {
-            val pattern = "(?<=watch\\?v=|/videos/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2F|youtu.be%2F|%2Fv%2F)[^#\\&\\?\\n]*"
+            val pattern =
+                "(?<=watch\\?v=|/videos/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2F|youtu.be%2F|%2Fv%2F)[^#\\&\\?\\n]*"
             val compiledPattern = Pattern.compile(pattern)
             val matcher = compiledPattern.matcher(url)
             if (matcher.find()) {
@@ -90,12 +93,14 @@ class VideoListAdapter(private val video: List<Video>) : RecyclerView.Adapter<Vi
         return ""
     }
 
-    fun filterVideo(query: String){
-        val lowerCaseQuery = query.toLowerCase(Locale.getDefault())
+    fun filterVideo(titleQuery: String = "", categoryQuery: String = "", ageQuery: String = "") {
+        val lowerCaseTitleQuery = titleQuery.toLowerCase(Locale.getDefault())
+        val lowerCaseCategoryQuery = categoryQuery.toLowerCase(Locale.getDefault())
+        val lowerCaseAgeQuery = ageQuery.toLowerCase(Locale.getDefault())
+
         filteredVideoList.clear()
 
-        if (lowerCaseQuery.isEmpty()){
-//            filteredVideoList.addAll(video)
+        if (lowerCaseTitleQuery.isEmpty() && lowerCaseCategoryQuery.isEmpty() && lowerCaseAgeQuery.isEmpty()) {
             val video = Firebase.firestore
             video.collection("tontonan")
                 .get()
@@ -110,14 +115,48 @@ class VideoListAdapter(private val video: List<Video>) : RecyclerView.Adapter<Vi
                 .addOnFailureListener { exception ->
                     Log.e(ContentValues.TAG, "Error getting video: ${exception.message}")
                 }
-        } else {
-            for (vid in video){
-                if (vid.title?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) ==true||
-                    vid.category?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true
+        } else if (lowerCaseCategoryQuery.isNotEmpty() && lowerCaseTitleQuery.isNotEmpty() && lowerCaseAgeQuery.isNotEmpty()) {
+            for (vid in video) {
+                if (vid.category?.toLowerCase(
+                        Locale.getDefault()
+                    )
+                        ?.contains(lowerCaseCategoryQuery) == true &&
+                    vid.age_id?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseAgeQuery) == true
+                ) {
+                    filteredVideoList.add(vid)
+                } else if (vid.title?.toLowerCase(
+                        Locale.getDefault()
+                    )
+                        ?.contains(lowerCaseTitleQuery) == true &&
+                    vid.age_id?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseAgeQuery) == true
                 ) {
                     filteredVideoList.add(vid)
                 }
             }
+        } else {
+            for (vid in video) {
+                if (lowerCaseCategoryQuery.isNotEmpty() && vid.category?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseCategoryQuery) == true
+                ) {
+                    filteredVideoList.add(vid)
+                }
+
+                if (lowerCaseAgeQuery.isNotEmpty() && vid.age_id?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseAgeQuery) == true
+                ) {
+                    filteredVideoList.add(vid)
+                }
+
+                if (lowerCaseTitleQuery.isNotEmpty() && vid.title?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseTitleQuery) == true
+                ) {
+                    filteredVideoList.add(vid)
+                }
+            }
+
+
         }
         notifyDataSetChanged()
     }
