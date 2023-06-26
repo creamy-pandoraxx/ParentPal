@@ -5,5 +5,6 @@ data class Video(
     val title: String ?= null,
     val category: String ?= null,
     val link: String ?= null,
-    val age: String ?= null
+    val age: String ?= null,
+    val age_id: String ?= null
 )
