@@ -43,7 +43,7 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-        //val artikel = article[position]
+
         val artikel = filteredArticleList[position]
 
         Picasso.get().load(artikel.thumbnail).into(holder.imArticle)
@@ -68,15 +68,16 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
         filteredArticleList.clear()
 
         if (lowerCaseQuery.isEmpty()&& lowerCaseCategoryQuery.isEmpty() && lowerCaseAgeQuery.isEmpty()) {
-           val db = Firebase.firestore
+            val db = Firebase.firestore
             db.collection("artikel")
                 .get()
                 .addOnSuccessListener { result ->
+                    filteredArticleList.clear()
                     for (document: QueryDocumentSnapshot in result) {
                         val article = document.toObject(Article::class.java)
-                        //listArticle.add(article)
                         filteredArticleList.add(article)
                     }
+                    filteredArticleList = ArrayList(filteredArticleList.take(3))
                     notifyDataSetChanged()
                 }
                 .addOnFailureListener { exception ->

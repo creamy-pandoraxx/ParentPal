@@ -60,6 +60,7 @@ class BacaanFragment : Fragment() {
 
         setupSvBacaan()
 
+
         rvArtikel = requireView().findViewById(R.id.rvArticle)
         rvArtikel.setHasFixedSize(true)
         showRvArticle()
@@ -101,7 +102,7 @@ class BacaanFragment : Fragment() {
         }
         umurAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spAge.adapter = umurAdapter
-        spAge.setSelection(1)
+        spAge.setSelection(0)
 
         spAge.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -127,14 +128,16 @@ class BacaanFragment : Fragment() {
                     val text = ContextCompat.getColor(requireContext(), R.color.text)
                     (view as TextView).setTextColor(text)
                 }
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+
             }
 
         }
     }
+
 
     private fun setupSvBacaan(){
         svBacaan.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -151,7 +154,9 @@ class BacaanFragment : Fragment() {
                 adapterArticleVer.filterArticleVertical(query = tittleQuery, categoryQueryVer = categoryQuery, ageQueryVer=ageQuery)
                 return true
             }
+
         })
+
     }
 
     //rvArtikel

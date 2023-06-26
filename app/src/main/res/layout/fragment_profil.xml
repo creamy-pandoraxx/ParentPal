@@ -22,6 +22,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:cardCornerRadius="50dp"
+
             app:strokeColor="@color/white">
 
             <ImageView
@@ -29,7 +30,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/profil" />
+                android:src="@drawable/blank" />
         </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout

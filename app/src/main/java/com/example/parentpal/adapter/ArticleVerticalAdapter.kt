@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.parentpal.ArtikelWebviewActivity
 import com.example.parentpal.R
 import com.example.parentpal.activity.ArticleActivity
 import com.example.parentpal.model.Article
@@ -47,10 +48,11 @@ class ArticleVerticalAdapter(private val article: List<Article>): RecyclerView.A
         holder.dateArticle.text = (artikel.tanggal)
         holder.categoryArticle.text = (artikel.Kategori)
 
-//        holder.ivArticle.setOnClickListener {
-//            val intent = Intent(holder.itemView.context, ArticleActivity::class.java)
-//            holder.itemView.context.startActivity(intent)
-//        }
+        holder.ivArticle.setOnClickListener {
+            val intent = Intent(holder.itemView.context, ArtikelWebviewActivity::class.java)
+            intent.putExtra("article_url", artikel.judul)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
         fun filterArticleVertical(query: String = "", categoryQueryVer: String = "", ageQueryVer: String = ""){
@@ -66,6 +68,7 @@ class ArticleVerticalAdapter(private val article: List<Article>): RecyclerView.A
                 db.collection("artikel")
                     .get()
                     .addOnSuccessListener { result ->
+                        filteredArticleVertical.clear()
                         for (document: QueryDocumentSnapshot in result) {
                             val article = document.toObject(Article::class.java)
                             filteredArticleVertical.add(article)
