@@ -1,5 +1,6 @@
 package com.example.parentpal.tabBelajar
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -38,6 +39,7 @@ class TontonanFragment : Fragment() {
     private lateinit var svTontonan: SearchView
     private lateinit var adapterTontonan: VideoListAdapter
     private lateinit var adapterTontonanVer: VideoListVerAdapter
+    private lateinit var kategoriAdapter: CategoryListAdapter
     var titleQuery = ""
     var categoryQuery = ""
     var ageQuery = ""
@@ -162,20 +164,38 @@ class TontonanFragment : Fragment() {
         adapterTontonanVer.filterVideoVer("")
     }
 
-    private fun fetchVideosVer() {
+    private fun fetchVideosVer(category: String? = null) {
         val vid = Firebase.firestore
-        vid.collection("tontonan")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document: QueryDocumentSnapshot in result) {
-                    val watch = document.toObject(Video::class.java)
-                    listVideoVer.add(watch)
+        listVideoVer.clear()
+
+        var collectionRef = vid.collection("tontonan")
+        if (category != null) {
+            collectionRef
+                .whereEqualTo("category", category)
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val videos = document.toObject(Video::class.java)
+                        listVideoVer.add(videos)
+                    }
+                    adapterTontonanVer.notifyDataSetChanged()
                 }
-                adapterTontonanVer.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                Log.e(TAG, "Error getting video: ${exception.message}")
-            }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting videos: ${exception.message}")
+                }
+        }else {
+            collectionRef.get()
+                .addOnSuccessListener { result ->
+                    for (document: QueryDocumentSnapshot in result) {
+                        val videos = document.toObject(Video::class.java)
+                        listVideoVer.add(videos)
+                    }
+                    adapterTontonanVer.notifyDataSetChanged()
+                }
+                .addOnFailureListener { exception ->
+                    Log.e(ContentValues.TAG, "Error getting videos: ${exception.message}")
+                }
+        }
     }
 
     private fun showRvVideo(){
@@ -206,7 +226,7 @@ class TontonanFragment : Fragment() {
         get() {
             val nameCategory = resources.getStringArray(R.array.data_name)
             val dataCategory = ArrayList<Category>()
-            for (i in 1..6){
+            for (i in 2..13){
                 val category = Category(nameCategory[i])
                 dataCategory.add(category)
             }
@@ -215,7 +235,13 @@ class TontonanFragment : Fragment() {
 
     private fun showRvCat(){
         rv_category.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rv_category.adapter = CategoryListAdapter(listKategori)
+        kategoriAdapter = CategoryListAdapter(listKategori)
+        rv_category.adapter = kategoriAdapter
+        kategoriAdapter.setOnCategorySelectedListener { kategoriName ->
+            adapterTontonanVer.filterVideoVer(categoryQueryVer  =kategoriName.toString())
+//            fetchVideosVer(kategoriName)
+//            adapterTontonanVer.filterVideoVer(kategoriName.orEmpty())
+        }
     }
 
 

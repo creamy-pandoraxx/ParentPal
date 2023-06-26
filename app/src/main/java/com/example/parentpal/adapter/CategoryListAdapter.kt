@@ -1,5 +1,6 @@
 package com.example.parentpal.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -80,6 +81,7 @@ class CategoryListAdapter(private val category: ArrayList<Category>) : RecyclerV
 
     // Set listener untuk kategori yang dipilih
     fun setOnCategorySelectedListener(listener: (String?) -> Unit) {
+
         onCategorySelectedListener = listener
     }
 }
