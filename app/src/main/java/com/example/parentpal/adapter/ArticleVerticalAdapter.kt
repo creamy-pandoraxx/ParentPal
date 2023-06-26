@@ -53,13 +53,14 @@ class ArticleVerticalAdapter(private val article: List<Article>): RecyclerView.A
 //        }
     }
 
-        fun filterArticleVertical(query: String){
-            val lowerCaseQuery = query.lowercase(Locale.getDefault())
+        fun filterArticleVertical(query: String?){
+            val lowerCaseQuery = query.orEmpty().lowercase(Locale.getDefault())
+            val db = Firebase.firestore
+            var collectionRef = db.collection("artikel")
             filteredArticleVertical.clear()
             if (lowerCaseQuery.isEmpty()){
                 //filteredArticleVertical.addAll(article)
-                val db = Firebase.firestore
-                db.collection("artikel")
+                collectionRef
                     .get()
                     .addOnSuccessListener { result ->
                         for (document: QueryDocumentSnapshot in result) {
@@ -72,6 +73,22 @@ class ArticleVerticalAdapter(private val article: List<Article>): RecyclerView.A
                         Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
                     }
             } else {
+                collectionRef
+                    .whereEqualTo("Kategori", query)
+                    .get()
+                    .addOnSuccessListener { result ->
+                        for (document: QueryDocumentSnapshot in result) {
+                            val article = document.toObject(Article::class.java)
+                            filteredArticleVertical.add(article)
+                        }
+                        notifyDataSetChanged()
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.e(
+                            ContentValues.TAG,
+                            "Error getting articles: ${exception.message}"
+                        )
+                    }
                 for (artikel in article){
                     if (artikel.judul?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true ||
                         artikel.Kategori?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true

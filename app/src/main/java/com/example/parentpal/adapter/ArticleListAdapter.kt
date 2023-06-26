@@ -2,6 +2,7 @@ package com.example.parentpal.adapter
 
 import android.content.ContentValues
 import android.content.Intent
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -63,7 +64,7 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
         if (lowerCaseQuery.isEmpty()) {
             //filteredArticleList.addAll(article)
             //fetchArticles()
-            val db = Firebase.firestore
+           val db = Firebase.firestore
             db.collection("artikel")
                 .get()
                 .addOnSuccessListener { result ->
