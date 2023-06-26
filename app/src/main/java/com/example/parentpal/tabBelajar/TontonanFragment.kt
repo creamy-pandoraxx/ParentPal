@@ -240,7 +240,7 @@ class TontonanFragment : Fragment() {
         kategoriAdapter.setOnCategorySelectedListener { kategoriName ->
             adapterTontonanVer.filterVideoVer(categoryQueryVer  =kategoriName.toString())
 //            fetchVideosVer(kategoriName)
-//            adapterTontonanVer.filterVideoVer(kategoriName.orEmpty())
+            adapterTontonanVer.filterVideoVer(categoryQueryVer = kategoriName.orEmpty())
         }
     }
 

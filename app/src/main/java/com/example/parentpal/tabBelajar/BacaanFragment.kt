@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.SearchView
 import android.widget.Spinner
@@ -39,7 +40,9 @@ class BacaanFragment : Fragment() {
     private lateinit var adapterArticle: ArticleListAdapter
     private lateinit var adapterArticleVer: ArticleVerticalAdapter
     private lateinit var categoryAdapter: CategoryListAdapter
-    private lateinit var db: FirebaseFirestore
+    var tittleQuery = ""
+    var categoryQuery = ""
+    var ageQuery = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,21 +54,18 @@ class BacaanFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        svBacaan = requireView().findViewById<SearchView>(R.id.sv_bacaan)
-        setupSvBacaan()
-        adapterArticle = ArticleListAdapter(listArticle)
+        val items = listOf("Semua Usia","0 – 6 tahun", "7 – 12 tahun","13 – 17 tahun")
 
+        svBacaan = requireView().findViewById<SearchView>(R.id.sv_bacaan)
+
+        setupSvBacaan()
 
         rvArtikel = requireView().findViewById(R.id.rvArticle)
         rvArtikel.setHasFixedSize(true)
-        //listArticle.addAll(listArtikel)
-        //listArticle = arrayListOf()
         showRvArticle()
 
         rvArtikelVertical = requireView().findViewById(R.id.rvArtikelVer)
         rvArtikelVertical.setHasFixedSize(true)
-        //listArticleVertical.addAll(listArtikelVer)
-        listArticleVertical = arrayListOf()
         showRvArticleVer()
 
         rvKategori = requireView().findViewById(R.id.rvKategori)
@@ -75,14 +75,13 @@ class BacaanFragment : Fragment() {
 
         //spinnerUmur
         spAge = requireView().findViewById(R.id.sp_age)
-        val itemUmur = resources.getStringArray(R.array.data_age)
+        val itemUmur = items
 
         val umurAdapter = object :
             ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, itemUmur) {
-            override fun isEnabled(position: Int): Boolean {
-                return position != 0
-            }
-
+//            override fun isEnabled(position: Int): Boolean {
+//                return position != 0
+//            }
             override fun getDropDownView(
                 position: Int,
                 convertView: View?,
@@ -91,9 +90,11 @@ class BacaanFragment : Fragment() {
                 val view: TextView =
                     super.getDropDownView(position, convertView, parent) as TextView
                 if (position == 0) {
-                    val textUmur = ContextCompat.getColor(context, R.color.text_200)
-                    view.setTextColor(textUmur)
+//                    val textUmur = ContextCompat.getColor(context, R.color.text_200)
+//                    view.setTextColor(textUmur)
                 } else {
+                    val text = ContextCompat.getColor(requireContext(), R.color.text)
+                    (view as TextView).setTextColor(text)
                 }
                 return view
             }
@@ -101,6 +102,38 @@ class BacaanFragment : Fragment() {
         umurAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spAge.adapter = umurAdapter
         spAge.setSelection(1)
+
+        spAge.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val value = parent!!.getItemAtPosition(position).toString()
+                if (position > 0){
+                    ageQuery = position.toString()
+                    adapterArticle.filterArticle(query=tittleQuery, categoryQuery=categoryQuery, ageQuery=ageQuery)
+                    adapterArticleVer.filterArticleVertical(query=tittleQuery, categoryQueryVer=categoryQuery, ageQueryVer=ageQuery)
+                }else{
+                    //nampilin semua item
+                    adapterArticle.filterArticle()
+                    adapterArticleVer.filterArticleVertical()
+                }
+                if (value == items[0]) {
+//                    val text = ContextCompat.getColor(requireContext(), R.color.text_200)
+//                    (view as TextView).setTextColor(text)
+                } else {
+                    val text = ContextCompat.getColor(requireContext(), R.color.text)
+                    (view as TextView).setTextColor(text)
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
     }
 
     private fun setupSvBacaan(){
@@ -111,33 +144,17 @@ class BacaanFragment : Fragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 val query = newText.orEmpty()
-                adapterArticle.filterArticle(query)
-                adapterArticleVer.filterArticleVertical(query)
+                tittleQuery = query
+                categoryQuery = query
+
+                adapterArticle.filterArticle(query = tittleQuery, categoryQuery = categoryQuery, ageQuery=ageQuery)
+                adapterArticleVer.filterArticleVertical(query = tittleQuery, categoryQueryVer = categoryQuery, ageQueryVer=ageQuery)
                 return true
             }
         })
     }
 
     //rvArtikel
-    /*private val listArtikel: ArrayList<Article>
-        get() {
-            val articleImg = resources.getStringArray(R.array.article_img)
-            val articleTitle = resources.getStringArray(R.array.article_title)
-            val articleDate = resources.getStringArray(R.array.article_date)
-            val articleCategory = resources.getStringArray(R.array.article_category)
-            val dataArticle = ArrayList<Article>()
-            for (i in articleTitle.indices) {
-                val article = Article(
-                    articleImg.getResourceId(i, -1),
-                    articleTitle[i],
-                    articleDate[i],
-                    articleCategory[i]
-                )
-                dataArticle.add(article)
-            }
-            return dataArticle
-        }*/
-
     private fun showRvArticle() {
         adapterArticle = ArticleListAdapter(listArticle)
         rvArtikel.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -162,26 +179,6 @@ class BacaanFragment : Fragment() {
             }
     }
 
-
-    //rvArtikelVer
-    /*private val listArtikelVer: ArrayList<Article>
-        get() {
-            val articleImg = resources.obtainTypedArray(R.array.article_img)
-            val articleTitle = resources.getStringArray(R.array.article_title)
-            val articleDate = resources.getStringArray(R.array.article_date)
-            val articleCategory = resources.getStringArray(R.array.article_category)
-            val dataArticle = ArrayList<Article>()
-            for (i in articleTitle.indices) {
-                val article = Article(
-                    articleImg.getResourceId(i, -1),
-                    articleTitle[i],
-                    articleDate[i],
-                    articleCategory[i]
-                )
-                dataArticle.add(article)
-            }
-            return dataArticle
-        }*/
 
     private fun showRvArticleVer() {
         adapterArticleVer = ArticleVerticalAdapter(listArticleVertical)
@@ -244,8 +241,9 @@ class BacaanFragment : Fragment() {
         rvKategori.adapter = categoryAdapter
         categoryAdapter.setOnCategorySelectedListener { categoryName ->
             // Dapatkan artikel berdasarkan kategori yang dipilih
-            fetchArticlesVer(categoryName)
-            adapterArticleVer.filterArticleVertical(categoryName.orEmpty())
+            adapterArticleVer.filterArticleVertical(categoryQueryVer = categoryName.toString())
+            //fetchArticlesVer(categoryName)
+            adapterArticleVer.filterArticleVertical(categoryQueryVer = categoryName.orEmpty())
         }
     }
 
