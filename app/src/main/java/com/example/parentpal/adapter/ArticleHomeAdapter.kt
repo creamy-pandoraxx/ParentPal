@@ -13,6 +13,10 @@ import com.example.parentpal.model.Article
 import com.squareup.picasso.Picasso
 
 class ArticleHomeAdapter(private val article: List<Article>): RecyclerView.Adapter<ArticleHomeAdapter.ArticleViewHolder>() {
+
+    init {
+        article.take(3)
+    }
     class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imArticle: ImageView = itemView.findViewById(R.id.imgArticle)
         val tvTitleArticle: TextView = itemView.findViewById(R.id.tvTitleArticle)

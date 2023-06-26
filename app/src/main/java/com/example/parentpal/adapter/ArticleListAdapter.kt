@@ -22,6 +22,9 @@ import java.util.Locale
 class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adapter<ArticleListAdapter.ArticleViewHolder>() {
     private var filteredArticleList: ArrayList<Article> = ArrayList(article)
 
+    init {
+        filteredArticleList.addAll(article.take(3))
+    }
     class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imArticle: ImageView = itemView.findViewById(R.id.imgArticle)
         val tvTitleArticle: TextView = itemView.findViewById(R.id.tvTitleArticle)
@@ -40,7 +43,7 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-        //val artikel = article[position]
+
         val artikel = filteredArticleList[position]
 
         Picasso.get().load(artikel.thumbnail).into(holder.imArticle)
@@ -57,31 +60,65 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
 
     }
 
-    fun filterArticle(query: String) {
+    fun filterArticle(query: String = "", categoryQuery: String = "", ageQuery: String = "" ) {
         val lowerCaseQuery = query.lowercase(Locale.getDefault())
+        val lowerCaseCategoryQuery = categoryQuery.toLowerCase(Locale.getDefault())
+        val lowerCaseAgeQuery = ageQuery.toLowerCase(Locale.getDefault())
+
         filteredArticleList.clear()
 
-        if (lowerCaseQuery.isEmpty()) {
-            //filteredArticleList.addAll(article)
-            //fetchArticles()
-           val db = Firebase.firestore
+        if (lowerCaseQuery.isEmpty()&& lowerCaseCategoryQuery.isEmpty() && lowerCaseAgeQuery.isEmpty()) {
+            val db = Firebase.firestore
             db.collection("artikel")
                 .get()
                 .addOnSuccessListener { result ->
+                    filteredArticleList.clear()
                     for (document: QueryDocumentSnapshot in result) {
                         val article = document.toObject(Article::class.java)
-                        //listArticle.add(article)
                         filteredArticleList.add(article)
                     }
+                    filteredArticleList = ArrayList(filteredArticleList.take(3))
                     notifyDataSetChanged()
                 }
                 .addOnFailureListener { exception ->
                     Log.e(ContentValues.TAG, "Error getting articles: ${exception.message}")
                 }
+        }else if(lowerCaseCategoryQuery.isNotEmpty() && lowerCaseQuery.isNotEmpty() && lowerCaseAgeQuery.isNotEmpty()){
+            for (artikel in article){
+                if (artikel.Kategori?.toLowerCase(
+                        Locale.getDefault()
+                )
+                        ?.contains(lowerCaseCategoryQuery) == true &&
+                    artikel.age_id?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseAgeQuery)==true
+                ){
+                    filteredArticleList.add(artikel)
+                }else if (artikel.judul?.toLowerCase(
+                        Locale.getDefault()
+                )
+                        ?.contains(lowerCaseQuery) == true &&
+                    artikel.age_id?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseAgeQuery) == true
+                ){
+                    filteredArticleList.add(artikel)
+                }
+            }
         } else {
             for (artikel in article) {
-                if (artikel.judul?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true ||
-                    artikel.Kategori?.toLowerCase(Locale.getDefault())?.contains(lowerCaseQuery) == true
+                if (lowerCaseCategoryQuery.isNotEmpty() && artikel.Kategori?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseCategoryQuery) == true
+                ) {
+                    filteredArticleList.add(artikel)
+                }
+
+                if (lowerCaseAgeQuery.isNotEmpty() && artikel.age_id?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseAgeQuery) == true
+                ) {
+                    filteredArticleList.add(artikel)
+                }
+
+                if (lowerCaseQuery.isNotEmpty() && artikel.judul?.toLowerCase(Locale.getDefault())
+                        ?.contains(lowerCaseQuery) == true
                 ) {
                     filteredArticleList.add(artikel)
                 }
@@ -89,7 +126,5 @@ class ArticleListAdapter(private val article: List<Article>) : RecyclerView.Adap
         }
         notifyDataSetChanged()
     }
-
-
 
 }

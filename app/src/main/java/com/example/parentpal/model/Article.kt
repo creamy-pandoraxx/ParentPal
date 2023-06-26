@@ -6,4 +6,5 @@ data class Article(
     val tanggal: String ?= null,
     val Kategori: String ?= null,
     val kontent: String ?= null,
+    val age_id: String ?= null,
 )

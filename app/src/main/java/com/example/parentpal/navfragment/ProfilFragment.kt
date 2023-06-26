@@ -7,9 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
 import com.example.parentpal.R
+import com.example.parentpal.activity.EditActivity
 import com.example.parentpal.activity.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -21,6 +24,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.Source
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 
 
 class ProfilFragment : Fragment() {
@@ -28,6 +32,8 @@ class ProfilFragment : Fragment() {
     private lateinit var namaPengguna: TextView
     private lateinit var emailPengguna: TextView
     private lateinit var auth: FirebaseAuth
+    private lateinit var buttoEditProfil: TextView
+    private lateinit var fotoPengguna: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,24 +47,42 @@ class ProfilFragment : Fragment() {
 
         namaPengguna = view.findViewById(R.id.namaPengguna)
         emailPengguna = view.findViewById(R.id.emailPengguna)
+        fotoPengguna = view.findViewById(R.id.fotoPengguna)
+        buttoEditProfil = view.findViewById(R.id.buttoEditProfil)
 
+
+        buttoEditProfil.setOnClickListener {
+            val intent = Intent(activity, EditActivity::class.java)
+            startActivity(intent)
+        }
 
         // Mendapatkan ID pengguna saat ini
         val currentUser: FirebaseUser? = auth.currentUser
         val email: String = currentUser?.email ?: ""
 
-        // Mendapatkan data "nama" dari Firebase Database
-        val userRef = db.collection("mobile_users").document(email)
-        userRef.get(Source.CACHE).addOnSuccessListener { documentSnapshot ->
-            if (documentSnapshot.exists()) {
-                val nama: String? = documentSnapshot.getString("name")
-                val email: String? = documentSnapshot.getString("email")
-                namaPengguna.text = "$nama"
-                emailPengguna.text = "$email"
-            }
-        }.addOnFailureListener { exception ->
-            // Penanganan kesalahan jika terjadi
+        val photoUrl = currentUser?.photoUrl
+        if (photoUrl != null) {
+            Glide.with(this)
+                .load(photoUrl)
+                .into(fotoPengguna)
+        }else{
+            fotoPengguna.setImageResource(R.drawable.blank)
         }
+
+        namaPengguna.text = currentUser?.displayName
+        emailPengguna.text = email
+        // Mendapatkan data "nama" dari Firebase Database
+//        val userRef = db.collection("mobile_users").document(email)
+//        userRef.get(Source.CACHE).addOnSuccessListener { documentSnapshot ->
+//            if (documentSnapshot.exists()) {
+//                val nama: String? = documentSnapshot.getString("name")
+//                val email: String? = documentSnapshot.getString("email")
+//                namaPengguna.text = "$nama"
+//                emailPengguna.text = "$email"
+//            }
+//        }.addOnFailureListener { exception ->
+//            // Penanganan kesalahan jika terjadi
+//        }
 
 
         // Cari referensi tombol "Keluar Akun"
@@ -71,6 +95,9 @@ class ProfilFragment : Fragment() {
         }
 
         return view
+
+
+
     }
 
     private fun signOut() {
