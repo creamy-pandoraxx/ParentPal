@@ -28,6 +28,10 @@ class BioActivity : AppCompatActivity() {
     private lateinit var birthTextInputLayout: TextInputLayout
     private lateinit var namaAnak: EditText
     private lateinit var radioGroup: RadioGroup
+    private lateinit var heightEditText: EditText
+    private lateinit var weightEditText: EditText
+    private lateinit var bmiTextView: TextView
+    private lateinit var recommendationTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +39,15 @@ class BioActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val back = findViewById<ImageView>(R.id.iv_backBio)
-        val nextLanding = findViewById<Button>(R.id.btn_bio)
+        val nextLanding = findViewById<Button>(R.id.calculate)
         birthEditText = findViewById(R.id.et_birth) as AppCompatEditText
-        birthTextInputLayout = findViewById(R.id.il_birth)
+        birthTextInputLayout = findViewById(R.id.il_birthChild)
         namaAnak = findViewById(R.id.et_nama)
         radioGroup = findViewById(R.id.rg_gender)
+        heightEditText = findViewById(R.id.et_tinggiChild)
+        weightEditText = findViewById(R.id.et_beratChild)
+        bmiTextView = findViewById(R.id.bmiTextView)
+        recommendationTextView = findViewById(R.id.recommendationTextView)
 
 
 
@@ -68,10 +76,52 @@ class BioActivity : AppCompatActivity() {
                 "jenis kelamin" to selectedGender
             )
             db.collection("mobile_users").document(email).collection("data_anak").document(namaAnak).set(dataAnak, SetOptions.merge())
-            val goLanding = Intent(this@BioActivity, LandingActivity::class.java)
-            startActivity(goLanding)
+            calculateBMI()
+//            val goLanding = Intent(this@BioActivity, LandingActivity::class.java)
+//            startActivity(goLanding)
         }
         }
+
+    //function cek
+    private fun calculateBMI() {
+        val heightText = heightEditText.text.toString()
+        val weightText = weightEditText.text.toString()
+
+        if (heightText.isNotEmpty() && weightText.isNotEmpty()) {
+            val height = heightText.toDouble()
+            val weight = weightText.toDouble()
+
+            val heightInMeter = height / 100
+            val bmi = weight / (heightInMeter * heightInMeter)
+
+            val bmiCategory = getBmiCategory(bmi)
+            val recommendation = getRecommendation(bmiCategory)
+
+            bmiTextView.text = "BMI anak: %.2f".format(bmi)
+            recommendationTextView.text = "Kategori BMI: $bmiCategory\nRekomendasi: $recommendation"
+        } else {
+            bmiTextView.text = ""
+            recommendationTextView.text = ""
+        }
+    }
+
+    private fun getBmiCategory(bmi: Double): String {
+        return when {
+            bmi < 18.5 -> "Kurus"
+            bmi < 25.0 -> "Normal"
+            bmi < 30.0 -> "Gemuk"
+            else -> "Obesitas"
+        }
+    }
+
+    private fun getRecommendation(bmiCategory: String): String {
+        return when (bmiCategory) {
+            "Kurus" -> "Anjurkan pola makan seimbang dan olahraga teratur."
+            "Normal" -> "Pertahankan pola makan sehat dan aktivitas fisik yang cukup."
+            "Gemuk" -> "Perhatikan pola makan dan rajin berolahraga untuk menjaga berat badan."
+            else -> "Konsultasikan dengan dokter atau ahli gizi untuk penanganan lebih lanjut."
+        }
+    }
 
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()

@@ -1,250 +1,366 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.BioChildActivity">
 
-    <ImageView
-        android:id="@+id/iv_backBioChild"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_bioChild"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/nunito_bold"
-        android:text="Biodata Anak"
-        android:textColor="@color/text"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cd_bioChild"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="18dp"
-        app:cardBackgroundColor="@color/background_200"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_bioChild"
-        app:strokeColor="@color/background_300">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
+            android:id="@+id/iv_backBioChild"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_bioChild"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Data Anak"
+            android:textColor="@color/text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cd_bioChild"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="18dp"
+            app:cardBackgroundColor="@color/background_200"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_bioChild"
+            app:strokeColor="@color/background_300">
 
-            <ImageView
-                android:id="@+id/iv_bioChild"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_bio"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_bioChild1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="18dp"
-                android:fontFamily="@font/nunito_bold"
-                android:text="Biodata Anak 1"
-                android:textColor="@color/text"
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@id/iv_bioChild"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="150dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_drop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tv_bioChild1"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/il_nama"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="14dp"
-                android:textColorHint="@color/text_200"
-                app:boxStrokeColor="@color/primary"
-                app:endIconDrawable="@drawable/dismiss"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/primary"
-                app:hintTextColor="@color/text_200"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_bioChild1"
-                app:placeholderTextColor="@color/text">
+                android:layout_height="match_parent">
 
-                <EditText
-                    android:id="@+id/et_namaChild"
-                    style="@style/textstyle_enable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nama"
-                    android:inputType="textCapWords"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                <ImageView
+                    android:id="@+id/iv_bioChild"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_bio"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/il_birth"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="14dp"
-                android:textColorHint="@color/text_200"
-                app:boxStrokeColor="@color/primary"
-                app:endIconDrawable="@drawable/dismiss"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/primary"
-                app:hintTextColor="@color/text_200"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/il_nama"
-                app:placeholderTextColor="@color/text">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_birthChild"
-                    style="@style/textstyle_enable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:hint="Tanggal Lahir"
-                    android:inputType="date"
-                    android:onClick="showDatePicker"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_genderChild"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="14dp"
-                android:fontFamily="@font/nunito_medium"
-                android:paddingStart="14dp"
-                android:text="Jenis Kelamin"
-                android:textColor="@color/text"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/il_birth"
-                app:layout_goneMarginTop="16dp" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_genderChild">
-
-                <RadioButton
-                    android:id="@+id/rb_male"
+                <TextView
+                    android:id="@+id/tv_bioChild1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/primary"
-                    android:fontFamily="@font/nunito_semi_bold"
-                    android:padding="10dp"
-                    android:text="Laki-Laki"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Biodata Anak 1"
                     android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/iv_bioChild"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <RadioButton
-                    android:id="@+id/rb_female"
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_drop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_nama"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginEnd="16dp"
-                    android:buttonTint="@color/primary"
-                    android:checked="true"
-                    android:fontFamily="@font/nunito_semi_bold"
-                    android:padding="10dp"
-                    android:text="Perempuan"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="14dp"
+                    android:textColorHint="@color/text_200"
+                    app:boxStrokeColor="@color/primary"
+                    app:endIconDrawable="@drawable/dismiss"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/primary"
+                    app:hintTextColor="@color/text_200"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_bioChild"
+                    app:placeholderTextColor="@color/text">
+
+                    <EditText
+                        android:id="@+id/et_namaChild"
+                        style="@style/textstyle_enable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nama"
+                        android:inputType="textCapWords"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_birth"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="14dp"
+                    android:textColorHint="@color/text_200"
+                    app:boxStrokeColor="@color/primary"
+                    app:endIconDrawable="@drawable/dismiss"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/primary"
+                    app:hintTextColor="@color/text_200"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/il_nama"
+                    app:placeholderTextColor="@color/text">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_birthChild"
+                        style="@style/textstyle_enable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:hint="Tanggal Lahir"
+                        android:inputType="date"
+                        android:onClick="showDatePicker"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_berat"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="14dp"
+                    android:textColorHint="@color/text_200"
+                    app:boxStrokeColor="@color/primary"
+                    app:endIconDrawable="@drawable/dismiss"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/primary"
+                    app:hintTextColor="@color/text_200"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/il_birth"
+                    app:placeholderTextColor="@color/text">
+
+                    <EditText
+                        android:id="@+id/et_beratChild"
+                        style="@style/textstyle_enable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Berat Badan (kg)"
+                        android:inputType="textCapWords"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_tinggi"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="14dp"
+                    android:textColorHint="@color/text_200"
+                    app:boxStrokeColor="@color/primary"
+                    app:endIconDrawable="@drawable/dismiss"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/primary"
+                    app:hintTextColor="@color/text_200"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/il_berat"
+                    app:placeholderTextColor="@color/text">
+
+                    <EditText
+                        android:id="@+id/et_tinggiChild"
+                        style="@style/textstyle_enable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Tinggi Badan (cm)"
+                        android:inputType="textCapWords"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_genderChild"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="14dp"
+                    android:fontFamily="@font/nunito_medium"
+                    android:paddingStart="14dp"
+                    android:text="Jenis Kelamin"
                     android:textColor="@color/text"
-                    android:textSize="14sp" />
-            </RadioGroup>
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/il_tinggi"
+                    app:layout_goneMarginTop="16dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_genderChild">
 
-    <ImageView
-        android:id="@+id/iv_plusChild"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="10dp"
-        android:src="@drawable/ic_plus"
-        app:layout_constraintEnd_toStartOf="@id/tv_tambahChild"
-        app:layout_constraintTop_toBottomOf="@id/cd_bioChild" />
+                    <RadioButton
+                        android:id="@+id/rb_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/primary"
+                        android:fontFamily="@font/nunito_semi_bold"
+                        android:padding="10dp"
+                        android:text="Laki-Laki"
+                        android:textColor="@color/text"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_female"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginEnd="16dp"
+                        android:buttonTint="@color/primary"
+                        android:checked="true"
+                        android:fontFamily="@font/nunito_semi_bold"
+                        android:padding="10dp"
+                        android:text="Perempuan"
+                        android:textColor="@color/text"
+                        android:textSize="14sp" />
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!--    <ImageView-->
+        <!--        android:id="@+id/iv_plusChild"-->
+        <!--        android:layout_width="25dp"-->
+        <!--        android:layout_height="25dp"-->
+        <!--        android:layout_marginTop="13dp"-->
+        <!--        android:layout_marginEnd="10dp"-->
+        <!--        android:src="@drawable/ic_plus"-->
+        <!--        app:layout_constraintEnd_toStartOf="@id/tv_tambahChild"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/cd_bioChild" />-->
 
 
-    <TextView
-        android:id="@+id/tv_tambahChild"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/nunito_semi_bold"
-        android:text="Tambah Data Anak"
-        android:textColor="@color/primary"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cd_bioChild" />
+        <!--    <TextView-->
+        <!--        android:id="@+id/tv_tambahChild"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginTop="16dp"-->
+        <!--        android:layout_marginEnd="16dp"-->
+        <!--        android:fontFamily="@font/nunito_semi_bold"-->
+        <!--        android:text="Tambah Data Anak"-->
+        <!--        android:textColor="@color/primary"-->
+        <!--        android:textSize="12sp"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/cd_bioChild" />-->
 
-    <Button
-        android:id="@+id/btn_bio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/shape_rectangle_blue"
-        android:fontFamily="@font/nunito_semi_bold"
-        android:text="Lanjutkan"
-        android:textAllCaps="false"
-        android:textColor="@color/primary_300"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/bmiTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calculateButton" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/recommendationTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bmiTextView" />
+
+        <TextView
+            android:id="@+id/namaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recommendationTextView" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/namaTextView"/>
+
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/shape_rectangle_blue"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:text="Cek Kesehatan"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_300"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/cd_bioChild"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

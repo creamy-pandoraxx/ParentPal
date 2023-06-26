@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/iv_img"
             app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +27,8 @@
             android:fontFamily="@font/nunito_bold"
             android:textSize="14sp"
             android:textColor="@color/text"
-            android:maxLines="2"
+            android:maxLines="1"
+            android:paddingEnd="30dp"
             android:ellipsize="end"
             android:inputType="none"/>
 
@@ -75,6 +76,7 @@
             android:id="@+id/tv_quest"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
+            android:paddingEnd="30dp"
             android:text="Selamat malam, Dokter. Saya memiliki masalah dengan anak saya yang tidak mau makan. Saya"
             app:layout_constraintStart_toEndOf="@id/iv_img"
             app:layout_constraintTop_toBottomOf="@id/tv_time"
