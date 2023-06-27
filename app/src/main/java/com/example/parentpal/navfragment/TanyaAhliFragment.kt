@@ -15,7 +15,7 @@ import com.example.parentpal.adapter.CategoryListAdapter
 import com.example.parentpal.adapter.QuestListAdapter
 import com.example.parentpal.model.Category
 import com.example.parentpal.model.Question
-import com.example.parentpal.question.AskActivity
+import com.example.parentpal.tabBelajar.question.AskActivity
 
    // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

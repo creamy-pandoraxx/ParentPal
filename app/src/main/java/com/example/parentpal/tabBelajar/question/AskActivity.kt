@@ -1,4 +1,4 @@
-package com.example.parentpal.question
+package com.example.parentpal.tabBelajar.question
 
 import android.content.Intent
 import android.graphics.Color

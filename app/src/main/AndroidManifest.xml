@@ -28,7 +28,7 @@
             android:name=".ArtikelWebviewActivity"
             android:exported="false" />
         <activity
-            android:name=".question.AskActivity"
+            android:name=".tabBelajar.question.AskActivity"
             android:exported="false" />
         <activity
             android:name=".activity.RegisterActivity"
