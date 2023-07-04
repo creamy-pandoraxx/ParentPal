@@ -52,6 +52,7 @@ class RoleActivity : AppCompatActivity() {
             }
             val goStage = Intent(this@RoleActivity, StageActivity::class.java)
             startActivity(goStage)
+            finish()
         }
     }
 }

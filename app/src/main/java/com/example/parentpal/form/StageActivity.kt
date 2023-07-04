@@ -58,6 +58,7 @@ class StageActivity : AppCompatActivity() {
                 val intent = Intent(this, BioActivity::class.java)
                 startActivity(intent)
             }
+            finish()
         }
     }
 }

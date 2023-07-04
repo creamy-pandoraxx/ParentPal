@@ -314,26 +314,15 @@ class BerandaFragment : Fragment() {
         val currentUser: FirebaseUser? = auth.currentUser
         val email: String = currentUser?.email ?: ""
 
-            // Mendapatkan data "nama" dari Firestore
-            val userRef = db.collection("mobile_users").document(email)
-            userRef.get(Source.CACHE)
-                .addOnSuccessListener { documentSnapshot ->
-                    if (documentSnapshot.exists()) {
-                        // Mendapatkan data "nama" dari dokumen
-                        val nama: String? = documentSnapshot.getString("name")
+        // Mendapatkan data "nama" dari dokumen
+        val nama = currentUser?.displayName
 
-                        // Mendapatkan string sebelum spasi
-                        val firstName: String = nama?.split(" ")?.get(0) ?: ""
+        // Mendapatkan string sebelum spasi
+        val firstName: String = nama?.split(" ")?.get(0) ?: ""
 
-                        // Menggunakan string "firstName" yang diperoleh
-                        binding.tvTitle.text = "Halo, $firstName"
-                    } else {
-                        // Dokumen tidak ditemukan
-                    }
-                }
-                .addOnFailureListener { e ->
-                    // Gagal mengambil data
-                }
+        // Menggunakan string "firstName" yang diperoleh
+        binding.tvTitle.text = "Halo, $firstName"
+
 
         return root
     }
