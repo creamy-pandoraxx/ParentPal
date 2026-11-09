@@ -64,7 +64,7 @@ tontonan/{id}                   title, category, YouTube link, age_id, image
 
 ## Getting started
 
-1. Install Android Studio with JDK 17 and an Android SDK for API 33.
+1. Install Android Studio (JDK 11 or newer) and the Android SDK for API 33.
 2. Open the project and let Gradle sync (wrapper uses Gradle 7.5).
 3. The repository contains a `google-services.json` for the original Firebase project. To run against your own backend, create a Firebase project, enable Email/Password sign-in and Cloud Firestore, replace `app/google-services.json`, and add `artikel` and `tontonan` documents using the shape above.
 4. Run the `app` configuration on an emulator or device with Android 8.0 (API 26) or newer.
